@@ -17,16 +17,15 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
-; プログラムパスの設定。
+; Program Path
 App_explorer = "C:\Windows\explorer.exe"
 App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor := "C:\Windows\notepad.exe"
 App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 
-; 会社用。プログラムのパスは上書きする。
+; For Office. !!PROGRAM PATHS OVERRIDE!!
 #Include OfficeOnly.ahk
 
-; 日本語チェック
 sc07B & /::
     If GetKeyState("Shift", "P")
         send,！
@@ -37,7 +36,7 @@ return
 ;RButton & WheelDown::Send,^{Tab}
 ;RButton & WheelUp::Send,^+{Tab}
 
-;ウィンドウを透明化する/解除
+; Window Transparency
 #Y::
   WinGet, tp, Transparent, A
   If tp =
@@ -103,7 +102,6 @@ return
 sc07B & MButton::Send,{Blind}{Home}+{End}
 sc07B & f::Send,{Blind}{Return}
 sc07B & r::send,{Blind}{F2}
-; 右クリックのやつ
 sc07B & c::Send,{AppsKey}
 
 
