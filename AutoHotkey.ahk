@@ -256,18 +256,25 @@ sc079 & ]::
 :*:2dv::2>/dev/null
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
+    return
 :*: ]cd::
     FormatTimeAndPaste("yyyy/M/d")
+    return
 :*: ]e::
     FormatTimeAndPaste("yyyyMMdd")
+    return
 :*: ]t::
     FormatTimeAndPaste("HH:mm")
+    return
 :*: ]s::
     FormatTimeAndPaste("HH:mm:ss")
+    return
 :*: ]fd::
     FormatTimeAndPaste("_yyyyMMdd")
+    return
 :*: ]yd::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
+    return
 :*:'igai::{^}(?{!}.*).*${Left 4}
 
 
