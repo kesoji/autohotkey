@@ -32,9 +32,18 @@ sc07B & /::
     Else
         Send,ÅH
 return
-;RButton::Send,{RButton}
-;RButton & WheelDown::Send,^{Tab}
-;RButton & WheelUp::Send,^+{Tab}
+WheelUp::
+    If GetKeyState("RButton", "P")
+        Send, ^+{Tab}
+    Else
+        Send {WheelUp}
+return
+WheelDown::
+    If GetKeyState("RButton", "P")
+        Send, ^{Tab}
+    Else
+        Send {WheelDown}
+return
 
 ; Window Transparency
 #Y::
