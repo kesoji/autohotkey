@@ -32,18 +32,18 @@ sc07B & /::
     Else
         Send,ÅH
 return
-WheelUp::
-    If GetKeyState("RButton", "P")
-        Send, ^+{Tab}
-    Else
-        Send {WheelUp}
-return
-WheelDown::
-    If GetKeyState("RButton", "P")
-        Send, ^{Tab}
-    Else
-        Send {WheelDown}
-return
+;WheelUp::
+;    If GetKeyState("RButton", "P")
+;        Send, ^+{Tab}
+;    Else
+;        Send, {WheelUp}
+;return
+;WheelDown::
+;    If GetKeyState("RButton", "P")
+;        Send, ^{Tab}
+;    Else
+;        Send, {WheelDown}
+;return
 
 ; Window Transparency
 #Y::
@@ -108,6 +108,13 @@ sc07B & RButton::
         Send,{Blind}{Del}
     }
 return
+sc079 & MButton::
+    old := Clipboard
+    Send ^c
+    Sleep 50
+    Run http://eow.alc.co.jp/search?q=%Clipboard%
+    Clipboard := old
+    return
 sc07B & MButton::Send,{Blind}{Home}+{End}
 sc07B & f::Send,{Blind}{Return}
 sc07B & r::send,{Blind}{F2}
