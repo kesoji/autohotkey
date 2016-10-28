@@ -254,14 +254,22 @@ sc079 & ]::
     return
 
 ; Utilities
+;; Mail
 :*:fme::from:me
 :*:tme::to:me
+;; Excel
 :*:`=IDR::=INDIRECT()
 :*:`=IDX::=INDEX()
 :*:`=NW::=NOW()
 :*:`#dbg::Debug.Print 
+;; Perl
+:*:usuw::use strict;{Enter}use warnings;
+;;Javascript
+:*:jsdq::/**{Enter}* {Enter}*/{Up}
+;; Linux
 :*:'eL::export LANG=ja_JP.UTF-8
 :*:'eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
+:*:s-v::set -o vi{Enter}
 :*:'gip::/sbin/ip a|grep inet
 :*:'ip::/sbin/ip a|grep inet
 :*:grepl::grep --line-buffered 
@@ -270,6 +278,7 @@ sc079 & ]::
 :*:'log::Logger.log();{Left}{Left}
 :*:vbar::|
 :*:2dv::2>/dev/null
+;; Date and Time
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
     return
@@ -322,12 +331,6 @@ RemoveCrLfFromClipboard() {
 ChangeCrLfToReturnFromClipboard() {
     StringReplace, Clipboard, Clipboard, `r`n, \n, All
 }
-
-;;Perl
-:*:usuw::use strict;{Enter}use warnings;
-
-;;Javascript
-:*:jsdq::/**{Enter}* {Enter}*/{Up}
 
 ; Note: From now on whenever you run AutoHotkey directly, this script
 ; will be loaded.  So feel free to customize it to suit your needs.
