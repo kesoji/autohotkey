@@ -17,45 +17,85 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
-; Program Path
+;;; Program Path ;;;
 App_explorer = "C:\Windows\explorer.exe"
 App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor := "C:\Windows\notepad.exe"
 App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 
-; !!PROGRAM PATHS OVERRIDE!!
+; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
 
-sc07B & /::
-    If GetKeyState("Shift", "P")
-        send,ÅI
+
+;;; Windows Key Customize ;;;
+#a::
+    Save := Clipboard
+    Send ^c
+    Sleep 500
+    Run %App_pdfviewer% "%Clipboard%"
+    Clipboard := Save
+    Return
+;#b::
+#c::Run https://www.google.com/calendar/render
+;#d:: ;Show Desktop
+;#e:: ;Show Explorer
+;#f:: ;Search
+#g::
+    Save := Clipboard
+    Send ^c
+    Sleep 500
+    Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
+    Clipboard := Save
+    Return
+;#h::
+#i::Run "C:\Program Files\Internet Explorer\iexplore.exe"
+;#j::
+;#k::
+;#l:: ;Lock
+;#m:: ;Minimize window
+;#n::
+;#o::
+;#p::
+;#q::
+;#r::
+#s::
+    Send {F2}
+    Sleep 50
+    Send ^c
+    Send !+e
+    Sleep 500
+    Send ^v
+    Return
+#t::Run http://thecolourclock.co.uk/
+;#u::
+;#v::
+;#w::
+;#x::
+#y::
+    WinGet, tp, Transparent, A
+    If tp =
+        Winset, Transparent, 160, A
     Else
-        Send,ÅH
-return
-;WheelUp::
-;    If GetKeyState("RButton", "P")
-;        Send, ^+{Tab}
-;    Else
-;        Send, {WheelUp}
-;return
-;WheelDown::
-;    If GetKeyState("RButton", "P")
-;        Send, ^{Tab}
-;    Else
-;        Send, {WheelDown}
-;return
+        Winset, Transparent, OFF, A
+    Return
+;#z::
 
-; Window Transparency
-#Y::
-  WinGet, tp, Transparent, A
-  If tp =
-    Winset, Transparent, 160, A
-  else
-    Winset, Transparent, OFF, A
-return
-
+;;; Henkan Muhenkan Customize ;;;
 sc07B & 0::Reload
-sc07B & 3::
+sc07B & 1::Send,^+{Tab}
+sc07B & 2::Send,^{Tab}
+sc07B & 3::Send,!{Left}
+sc07B & 4::Send,!{Right}
+sc07B & 5::
+    Save := Clipboard
+    Send ^c
+    Sleep 300
+    StringReplace, Clipboard, Clipboard, /, \, All
+    Run %App_explorer% "%Clipboard%"
+    Sleep 300
+    Clipboard := Save
+    Return
+sc07B & 6::
     Save := Clipboard
     Send ^c
     Sleep 300
@@ -63,21 +103,12 @@ sc07B & 3::
     Sleep 300
     Clipboard := Save
     Return
-sc07B & 4::
+sc07B & 7::
     Save := Clipboard
     Send ^c
     Sleep 300
     StringReplace, Clipboard, Clipboard, /, \, All
     Run %App_editor% "%Clipboard%"
-    Sleep 300
-    Clipboard := Save
-    Return
-sc07B & 5::
-    Save := Clipboard
-    Send ^c
-    Sleep 300
-    StringReplace, Clipboard, Clipboard, /, \, All
-    Run %App_explorer% "%Clipboard%"
     Sleep 300
     Clipboard := Save
     Return
@@ -129,31 +160,6 @@ sc07B & c::Send,{AppsKey}
 ; Return
 ^Q::Send, !{F4}
 
-#c::Run https://www.google.com/calendar/render
-#t::Run http://thecolourclock.co.uk/
-#i::Run "C:\Program Files\Internet Explorer\iexplore.exe"
-#g::
-    Save := Clipboard
-    Send ^c
-    Sleep 500
-    Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
-    Clipboard := Save
-    Return
-#a::
-    Save := Clipboard
-    Send ^c
-    Sleep 500
-    Run %App_pdfviewer% "%Clipboard%"
-    Clipboard := Save
-    Return
-#s::
-    Send {F2}
-    Sleep 50
-    Send ^c
-    Send !+e
-    Sleep 500
-    Send ^v
-    Return
 
 sc07B::sc07B
 sc079::sc079
@@ -186,6 +192,7 @@ sc07B & x::Send,{Blind}{End}
 sc079 & x::Send,{Blind}{End}
 ; Select
 sc07B & t::Send,{Blind}{Home}+{End}
+sc079 & t::Send,{Blind}{Home}+{End}
 ; Terminal
 sc07B & `;::Send,{Blind}{Esc}b
 sc079 & `;::Send,{Blind}{Esc}b
@@ -193,6 +200,7 @@ sc07B & sc028::Send,{Blind}{Esc}f
 sc079 & sc028::Send,{Blind}{Esc}f
 ; Others
 sc07B & Tab::send,{Tab}{Tab}{Tab}{Tab}{Tab}
+
 sc07B & space::send,{Blind}{Enter}
 sc079 & space::send,{Blind}{Enter}
 sc07B & n::Send,{Blind}{Esc}
@@ -205,8 +213,6 @@ sc07B & @::send,^b
 sc079 & @::send,^b
 sc07B & p::send,^b
 sc079 & p::send,^b
-sc07B & 1::send,^+{Tab}
-sc07B & 2::send,^{Tab}
 sc07B & WheelUp::
     If GetKeyState("Alt", "P")
         send,^+{PgUp}
@@ -228,32 +234,21 @@ sc07B & Right::send,Å®
 sc079 & Right::send,Å®
 sc07B & Left::send,Å©
 sc079 & Left::send,Å©
-sc07B & [::
-    If GetKeyState("Shift","P")
-        send,Åw
-    else
-        send,Åy
-    return
-sc079 & [::
-    If GetKeyState("Shift","P")
-        send,Åw
-    else
-        send,Åy
-    return
-sc07B & ]::
-    If GetKeyState("Shift","P")
-        send,Åx
-    else
-        send,Åz
-    return
-sc079 & ]::
-    If GetKeyState("Shift","P")
-        send,Åx
-    else
-        send,Åz
+sc07B & [::JapaneseBracketOpen()
+sc079 & [::JapaneseBracketOpen()
+sc07B & ]::JapaneseBracketClose()
+sc079 & ]::JapaneseBracketClose()
+sc07B & /::JapaneseQuestionAndBikkuri()
+sc079 & /::JapaneseQuestionAndBikkuri()
+
+sc07B & m::
+    FromExcelPasteDoubleQuoteReplace()
+    Send ^v
+    Sleep 50
+    Send, {BS}
     return
 
-; Utilities
+;;; Utilities ;;;
 ;; Mail
 :*:fme::from:me
 :*:tme::to:me
@@ -264,7 +259,7 @@ sc079 & ]::
 :*:`#dbg::Debug.Print 
 ;; Perl
 :*:usuw::use strict;{Enter}use warnings;
-;;Javascript
+;; Javascript
 :*:jsdq::/**{Enter}* {Enter}*/{Up}
 ;; Linux
 :*:'eL::export LANG=ja_JP.UTF-8
@@ -278,6 +273,8 @@ sc079 & ]::
 :*:'log::Logger.log();{Left}{Left}
 :*:vbar::|
 :*:2dv::2>/dev/null
+;; Regular Expression
+:*:'igai::{^}(?{!}.*).*${Left 4}
 ;; Date and Time
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
@@ -300,15 +297,7 @@ sc079 & ]::
 :*: ]yd::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
     return
-:*:'igai::{^}(?{!}.*).*${Left 4}
 
-
-sc07B & M::
-    FromExcelPasteDoubleQuoteReplace()
-    Send ^v
-    Sleep 50
-    Send, {BS}
-    return
 
 ; Functions
 FormatTimeAndPaste(format) {
@@ -330,6 +319,25 @@ RemoveCrLfFromClipboard() {
 
 ChangeCrLfToReturnFromClipboard() {
     StringReplace, Clipboard, Clipboard, `r`n, \n, All
+}
+
+JapaneseBracketOpen() {
+    If GetKeyState("Shift","P")
+        Send,Åw
+    Else
+        Send,Åy
+}
+JapaneseBracketClose() {
+    If GetKeyState("Shift","P")
+        Send,Åx
+    Else
+        Send,Åz
+}
+JapaneseQuestionAndBikkuri() {
+    If GetKeyState("Shift", "P")
+        Send,ÅI
+    Else
+        Send,ÅH
 }
 
 ; Note: From now on whenever you run AutoHotkey directly, this script
