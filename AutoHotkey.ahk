@@ -23,8 +23,8 @@ App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor := "C:\Windows\notepad.exe"
 App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 
-; For Office. !!PROGRAM PATHS OVERRIDE!!
-#Include OfficeOnly.ahk
+; !!PROGRAM PATHS OVERRIDE!!
+#Include LocalOnly.ahk
 
 sc07B & /::
     If GetKeyState("Shift", "P")
