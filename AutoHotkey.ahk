@@ -62,9 +62,10 @@ App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
     Send {F2}
     Sleep 50
     Send ^c
-    Send !+e
-    Sleep 500
+    Run "C:\Users\sakuradak94\Documents\Local_Apps\Everything\Everything.exe"
+    Sleep 1000
     Send ^v
+    Send {BS}{BS}{BS}{BS}{BS}{BS}
     Return
 #t::Run http://thecolourclock.co.uk/
 ;#u::
