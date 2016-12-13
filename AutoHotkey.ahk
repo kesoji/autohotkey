@@ -92,6 +92,7 @@ sc07B & 5::
     Send ^c
     Sleep 300
     StringReplace, Clipboard, Clipboard, /, \, All
+    Clipboard := RegExReplace(Clipboard, "[<>]", "")
     Run %App_explorer% "%Clipboard%"
     Sleep 300
     Clipboard := Save
