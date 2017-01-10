@@ -284,17 +284,24 @@ sc07B & m::
 :*: ]cd::
     FormatTimeAndPaste("yyyy/M/d")
     return
+:*: ]md::
+    formattimeandpaste("MM/dd")
+    return
+:*: ]cm::
+    formattimeandpaste("[MM/dd ]")
+    Send,{Left}
+    return
 :*: ]e::
     FormatTimeAndPaste("yyyyMMdd")
     return
 :*: ]t::
     FormatTimeAndPaste("HH:mm")
     return
-:*: ]s::
+:*: ]p::
     FormatTimeAndPaste("HH:mm:ss")
     return
 :*: ]fd::
-    FormatTimeAndPaste("_yyyyMMdd")
+    formattimeandpaste("_yyyyMMdd")
     return
 :*: ]yd::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
