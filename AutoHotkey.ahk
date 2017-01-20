@@ -261,6 +261,8 @@ sc07B & m::
 :*:`#dbg::Debug.Print 
 ;; Perl
 :*:usuw::use strict;{Enter}use warnings;
+;; Shell
+:*:shellq::{#}{!}/bin/bash{Enter}set -Ceu
 ;; Javascript
 :*:jsdq::/**{Enter}* {Enter}*/{Up}
 ;; Linux
