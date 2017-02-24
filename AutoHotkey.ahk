@@ -63,7 +63,7 @@ App_everything := "C:\Program Files\Everything\Everytahing.exe"
     Send {F2}
     Sleep 50
     Send ^c
-    Run App_everything
+    Run %App_everything%
     Sleep 1000
     Send ^v
     Send {BS}{BS}{BS}{BS}{BS}{BS}
