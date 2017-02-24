@@ -275,6 +275,7 @@ sc07B & m::
 :*:grepl::grep --line-buffered 
 :*:egrepl::egrep --line-buffered 
 :*:fgrepl::fgrep --line-buffered 
+:*:vlm::/var/log/messages
 :*:'log::Logger.log();{Left}{Left}
 :*:vbar::|
 :*:2dv::2>/dev/null
