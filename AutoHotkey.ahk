@@ -251,6 +251,11 @@ sc07B & m::
     return
 
 ;;; Utilities ;;;
+;; Windows
+:*:'dskq::
+    Clipboard = %A_Desktop%
+    Send ^v
+    return
 ;; Mail
 :*:fme::from:me
 :*:tme::to:me
