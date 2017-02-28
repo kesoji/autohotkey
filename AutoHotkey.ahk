@@ -22,6 +22,7 @@ App_explorer = "C:\Windows\explorer.exe"
 App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor := "C:\Windows\notepad.exe"
 App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
+App_everything := "C:\Program Files\Everything\Everything.exe"
 
 ; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
@@ -54,7 +55,7 @@ App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 ;#l:: ;Lock
 ;#m:: ;Minimize window
 ;#n::
-;#o::
+#o:: WinSet, AlwaysOnTop, toggle, A  ; A=active window
 ;#p::
 ;#q::
 ;#r::
@@ -62,7 +63,7 @@ App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
     Send {F2}
     Sleep 50
     Send ^c
-    Run "C:\Users\sakuradak94\Documents\Local_Apps\Everything\Everything.exe"
+    Run %App_everything%
     Sleep 1000
     Send ^v
     Send {BS}{BS}{BS}{BS}{BS}{BS}
