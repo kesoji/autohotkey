@@ -27,6 +27,9 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
 
+;;; IME script ;;;
+#Include IME.ahk
+
 
 ;;; Windows Key Customize ;;;
 #a::
@@ -93,7 +96,7 @@ sc07B & 5::
     Send ^c
     Sleep 300
     StringReplace, Clipboard, Clipboard, /, \, All
-    Clipboard := RegExReplace(Clipboard, "[<>]", "")
+    Clipboard := RegExReplace(Clipboard, "[<>ÅÉÅÑ]", "")
     Run %App_explorer% "%Clipboard%"
     Sleep 300
     Clipboard := Save
@@ -357,6 +360,40 @@ JapaneseQuestionAndBikkuri() {
     Else
         Send,ÅH
 }
+
+;;; for Vim
+;;; ã@î\ÇµÇƒÇ¢Ç»Ç¢ê‡Ç†ÇÈ
+; For Terminal/Vim
+GroupAdd Terminal, ahk_class PuTTY
+GroupAdd Terminal, ahk_class mintty ; cygwin
+GroupAdd TerminalVim, ahk_group Terminal
+GroupAdd TerminalVim, ahk_class Vim
+GroupAdd TerminalVim, ahk_class GVIM
+
+; ESC + IME
+#IfWInActive, ahk_group TerminalVim
+Esc:: ; Just send Esc at converting.
+  if (IME_GET(A)) {
+    if (IME_GetConverting(A)) {
+      Send,{Esc}
+    } else {
+      IME_SET(1)
+    }
+  } else {
+    Send,{Esc}
+  }
+  Return
+^[:: ; Go to Normal mode (for vim) with IME off even at converting.
+  if (IME_GET(A)) {
+    Send,{Esc}
+    Sleep 1 ; wait 1 ms (Need to stop converting)
+    IME_SET(1)
+    Send,{Esc}
+  } else {
+    Send,{Esc}
+  }
+  Return
+#IfWInActive
 
 ; Note: From now on whenever you run AutoHotkey directly, this script
 ; will be loaded.  So feel free to customize it to suit your needs.
