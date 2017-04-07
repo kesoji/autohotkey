@@ -358,6 +358,11 @@ JapaneseQuestionAndBikkuri() {
         Send,ÅH
 }
 
+!Lbutton::
+coordmode,mouse,screen
+MouseGetPos,Xm,Ym,IDwin
+WinGetPos,WinXm,WinYm,WinW,WinH,ahk_id %IDwin%
+
 ; Note: From now on whenever you run AutoHotkey directly, this script
 ; will be loaded.  So feel free to customize it to suit your needs.
 
