@@ -85,6 +85,23 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
     Return
 ;#z::
 
+;;; Mouse Key
+;d & h::
+;d & j::
+;d & k::
+;d & l::
+;    While (GetKeyState("d", "P"))
+;    {
+;        MoveX := 0, MoveY := 0
+;        MoveX += GetKeyState("h", "P") ? -11 : 0	;GetKeyState() と ?:演算子(条件) (三項演算子) の組み合わせ
+;        MoveY += GetKeyState("j", "P") ? 11 : 0
+;        MoveY += GetKeyState("k", "P") ? -11 : 0
+;        MoveX += GetKeyState("l", "P") ? 11 : 0
+;        MouseMove, %MoveX%, %MoveY%, 1, R		;マウスカーソルを移動する
+;        Sleep, 0					;負荷が高い場合は設定を変更 設定できる値は-1、0、10～m秒 詳細はSleep
+;    }
+;    Return
+
 ;;; Henkan Muhenkan Customize ;;;
 sc07B & 0::Reload
 sc07B & 1::Send,^+{Tab}
