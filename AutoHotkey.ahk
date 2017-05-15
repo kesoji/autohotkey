@@ -54,14 +54,14 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ;#h::
 #i::Run "C:\Program Files\Internet Explorer\iexplore.exe"
 ;#j::
-;#k::
+#k::Run "%USERPROFILE%\Downloads"
 ;#l:: ;Lock
 ;#m:: ;Minimize window
 ;#n::
 #o:: WinSet, AlwaysOnTop, toggle, A  ; A=active window
 ;#p::
 ;#q::
-;#r::
+;#r:: ;Show Run-command
 #s::
     Send {F2}
     Sleep 50
