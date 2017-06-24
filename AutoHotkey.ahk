@@ -271,6 +271,10 @@ sc07B & m::
     Send, {BS}
     return
 
+sc07B & v::
+    If GetKeyState("Ctrl", "P")
+        AddAngleBracketAndPaste()
+    return
 ;;; Utilities ;;;
 ;; Windows
 :*:'dskq::
@@ -359,6 +363,13 @@ ChangeCrLfToReturnFromClipboard() {
     StringReplace, Clipboard, Clipboard, `r`n, \n, All
 }
 
+AddAngleBracketAndPaste() {
+    Save := Clipboard
+    Clipboard := RegExReplace(Clipboard, "m)^", "> ")
+    Send ^v
+    Sleep 500
+    Clipboard := Save
+}
 JapaneseBracketOpen() {
     If GetKeyState("Shift","P")
         Send,Åw
