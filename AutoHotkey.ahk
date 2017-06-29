@@ -114,6 +114,8 @@ sc07B & 5::
     Sleep 300
     StringReplace, Clipboard, Clipboard, /, \, All
     Clipboard := RegExReplace(Clipboard, "[<>ÅÉÅÑ]", "")
+    Clipboard := RegExReplace(Clipboard, "^[ Å@]*", "")
+    Clipboard := RegExReplace(Clipboard, "[ Å@]+$", "")
     Run %App_explorer% "%Clipboard%"
     Sleep 300
     Clipboard := Save
@@ -282,8 +284,8 @@ sc07B & v::
     Send ^v
     return
 ;; Mail
-:*:fme::from:me
-:*:tme::to:me
+:*:'fme::from:me
+:*:'tme::to:me
 ;; Excel
 :*:`=IDR::=INDIRECT()
 :*:`=IDX::=INDEX()
