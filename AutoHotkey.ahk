@@ -146,6 +146,7 @@ sc07B & 8::
     Sleep 300
     Clipboard := Save
     Return
+sc07B & -::Send ^{NumpadAdd} ;Auto resize column on Explorer
 sc07B & LButton::
     If GetKeyState("Shift", "P") {
         Send ^c
