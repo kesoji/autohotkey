@@ -191,13 +191,32 @@ sc07B::sc07B
 sc079::sc079
 ; HJKL
 sc07B & h::Send,{Blind}{Left}
-sc079 & h::Send,{Blind}{Left}
 sc07B & j::Send,{Blind}{Down}
-sc079 & j::Send,{Blind}{Down}
 sc07B & k::Send,{Blind}{Up}
-sc079 & k::Send,{Blind}{Up}
 sc07B & l::Send,{Blind}{Right}
-sc079 & l::Send,{Blind}{Right}
+sc079 & l::
+sc079 & k::
+sc079 & j::
+sc079 & h::
+    While (GetKeyState("sc079", "P")) {
+        if (GetKeyState("sc07B", "P"))        {
+            MoveX := 0, MoveY := 0
+            MoveX += GetKeyState("h", "P") ? -10 : 0
+            MoveY += GetKeyState("j", "P") ? 10 : 0
+            MoveY += GetKeyState("k", "P") ? -10 : 0
+            MoveX += GetKeyState("l", "P") ? 10 : 0
+            MouseMove, %MoveX%, %MoveY%, 0, R ;0(fastest)-100(slowest)
+        }
+        else{
+            MoveX := 0, MoveY := 0
+            MoveX += GetKeyState("h", "P") ? -100 : 0
+            MoveY += GetKeyState("j", "P") ? 100 : 0
+            MoveY += GetKeyState("k", "P") ? -100 : 0
+            MoveX += GetKeyState("l", "P") ? 100 : 0
+            MouseMove, %MoveX%, %MoveY%, 0, R ;0(fastest)-100(slowest)
+        }
+    }
+    Return
 ; WASD
 sc07B & a::Send,{Blind}{Left}
 sc079 & a::Send,{Blind}{Left}
