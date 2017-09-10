@@ -30,6 +30,8 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ;;; IME script ;;;
 #Include IME.ahk
 
+;;; Disable Katakana / Hiragana
+sc070::Return
 
 ;;; Windows Key Customize ;;;
 #a::
