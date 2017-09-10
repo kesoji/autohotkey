@@ -2,3 +2,4 @@ AutoHotkey*.lnk
 AutoHotkey64.exe
 AU3_Spy.exe
 LocalOnly.ahk
+Pre_startup.ahk
