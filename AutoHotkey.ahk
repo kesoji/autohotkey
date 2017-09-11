@@ -191,6 +191,7 @@ sc07B & c::Send,{AppsKey}
 
 sc07B::sc07B
 sc079::sc079
+sc079 & Space::MouseClick
 ; HJKL
 sc07B & h::Send,{Blind}{Left}
 sc07B & j::Send,{Blind}{Down}
@@ -248,8 +249,6 @@ sc079 & sc028::Send,{Blind}{Esc}f
 ; Others
 sc07B & Tab::send,{Tab}{Tab}{Tab}{Tab}{Tab}
 
-sc07B & space::send,{Blind}{Enter}
-sc079 & space::send,{Blind}{Enter}
 sc07B & n::Send,{Blind}{Esc}
 sc079 & n::Send,{Blind}{Esc}
 sc07B & i::Send,{Blind}{BS}
