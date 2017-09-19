@@ -331,6 +331,8 @@ sc07B & v::
 :*:'log::Logger.log();{Left}{Left}
 :*:vbar::|
 :*:2dv::2>/dev/null
+:*:{to::{,.org}
+:*:{fo::{.org,}
 ;; Regular Expression
 :*:'igai::{^}(?{!}.*).*${Left 4}
 ;; Date and Time
