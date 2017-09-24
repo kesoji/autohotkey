@@ -191,8 +191,10 @@ sc07B & c::Send,{AppsKey}
 
 sc07B::sc07B
 sc079::sc079
-sc079 & c::MouseClick
-sc079 & v::MouseClick, Right
+sc079 & d::MouseClick
+sc079 & f::MouseClick, Right
+sc079 & c::MouseClick, Left, , , , D
+sc079 & v::MouseClick, Left, , , , U
 ; HJKL
 sc07B & h::Send,{Blind}{Left}
 sc07B & j::Send,{Blind}{Down}
@@ -223,13 +225,9 @@ sc079 & h::
     Return
 ; WASD
 sc07B & a::Send,{Blind}{Left}
-sc079 & a::Send,{Blind}{Left}
 sc07B & s::Send,{Blind}{Down}
-sc079 & s::Send,{Blind}{Down}
 sc07B & w::Send,{Blind}{Up}
-sc079 & w::Send,{Blind}{Up}
 sc07B & d::Send,{Blind}{Right}
-sc079 & d::Send,{Blind}{Right}
 ; Other moves
 sc07B & q::Send,{Blind}{PgUp}
 sc079 & q::Send,{Blind}{PgUp}
