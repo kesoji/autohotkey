@@ -73,18 +73,18 @@ sc070::Return
     Send ^v
     Send {BS}{BS}{BS}{BS}{BS}{BS}
     Return
-#t::Run http://thecolourclock.co.uk/
-;#u::
-;#v::
-;#w::
-;#x::
-#y::
+#t::
     WinGet, tp, Transparent, A
     If tp =
         Winset, Transparent, 160, A
     Else
         Winset, Transparent, OFF, A
     Return
+;#u::
+;#v::
+;#w::
+;#x::
+;#y::
 ;#z::
 
 ;;; Mouse Key
