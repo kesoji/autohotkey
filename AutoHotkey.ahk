@@ -191,7 +191,8 @@ sc07B & c::Send,{AppsKey}
 
 sc07B::sc07B
 sc079::sc079
-sc079 & Space::MouseClick
+sc079 & c::MouseClick
+sc079 & v::MouseClick, Right
 ; HJKL
 sc07B & h::Send,{Blind}{Left}
 sc07B & j::Send,{Blind}{Down}
