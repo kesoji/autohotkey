@@ -364,6 +364,9 @@ sc07B & v::
 :*: ]yd::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
     return
+:*: ]yyd::
+    FormatTimeAndPaste("MŒŽd“ú(ddd)")
+    return
 
 
 ; Functions
