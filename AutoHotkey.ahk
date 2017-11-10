@@ -34,14 +34,14 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 sc070::Return
 
 ;;; Windows Key Customize ;;;
-#a::
+;#a:: ;Action Center
+#b::
     Save := Clipboard
     Send ^c
     Sleep 500
     Run %App_pdfviewer% "%Clipboard%"
     Clipboard := Save
     Return
-;#b::
 #c::Run https://www.google.com/calendar/render
 ;#d:: ;Show Desktop
 ;#e:: ;Show Explorer
@@ -61,18 +61,10 @@ sc070::Return
 ;#m:: ;Minimize window
 ;#n::
 #o:: WinSet, AlwaysOnTop, toggle, A  ; A=active window
-;#p::
+;#p:: ;Display Setting
 ;#q::
 ;#r:: ;Show Run-command
-#s::
-    Send {F2}
-    Sleep 50
-    Send ^c
-    Run %App_everything%
-    Sleep 1000
-    Send ^v
-    Send {BS}{BS}{BS}{BS}{BS}{BS}
-    Return
+;#s:: ;Cortana
 #t::
     WinGet, tp, Transparent, A
     If tp =
@@ -85,7 +77,15 @@ sc070::Return
 ;#w::
 ;#x::
 ;#y::
-;#z::
+#z::
+    Send {F2}
+    Sleep 50
+    Send ^c
+    Run %App_everything%
+    Sleep 1000
+    Send ^v
+    Send {BS}{BS}{BS}{BS}{BS}{BS}
+    Return
 
 ;;; Mouse Key
 ;d & h::
