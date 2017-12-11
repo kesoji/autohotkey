@@ -296,9 +296,10 @@ sc07B & m::
 sc07B & v::
     If GetKeyState("Ctrl", "P")
         AddAngleBracketAndPaste()
-    Else
+    Else {
         ChangeLfToCrLfFromClipboard()
         Send ^v
+    }
     return
 ;;; Utilities ;;;
 ;; Windows
