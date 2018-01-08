@@ -296,6 +296,10 @@ sc07B & m::
 sc07B & v::
     If GetKeyState("Ctrl", "P")
         AddAngleBracketAndPaste()
+    Else {
+        ChangeLfToCrLfFromClipboard()
+        Send ^v
+    }
     return
 ;;; Utilities ;;;
 ;; Windows
@@ -367,6 +371,8 @@ sc07B & v::
 :*: ]yyd::
     FormatTimeAndPaste("Måédì˙(ddd)")
     return
+; íËå^ï∂
+:*:'gkari::Ç≤ämîFÇ†ÇËÇ™Ç∆Ç§Ç≤Ç¥Ç¢Ç‹ÇµÇΩÅB
 
 
 ; Functions
@@ -385,6 +391,10 @@ FromExcelPasteDoubleQuoteReplace() {
 
 RemoveCrLfFromClipboard() {
     StringReplace, Clipboard, Clipboard, `r`n, , All
+}
+
+ChangeLfToCrLfFromClipboard() {
+    StringReplace, Clipboard, Clipboard, `n, `r`n, All
 }
 
 ChangeCrLfToReturnFromClipboard() {
