@@ -338,6 +338,7 @@ sc07B & v::
 ;; Javascript
 :*:jsdq::/**{Enter}* {Enter}*/{Up}
 ;; Linux
+:*:{{bk::{{},.bak{}}
 :*:'eL::export LANG=ja_JP.UTF-8
 :*:'eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
 :*:s-v::set -o vi{Enter}
