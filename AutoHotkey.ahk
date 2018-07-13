@@ -49,13 +49,13 @@ sc070::Return
 #g::
     Save := Clipboard
     Send ^c
-    Sleep 500
+    Sleep 100
     Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
     Clipboard := Save
     Return
-;#h::
+#h::Run "%USERPROFILE%"
 #i::Run "C:\Program Files\Internet Explorer\iexplore.exe"
-;#j::
+#j::Run "%USERPROFILE%\Desktop"
 #k::Run "%USERPROFILE%\Downloads"
 ;#l:: ;Lock
 ;#m:: ;Minimize window
@@ -68,12 +68,17 @@ sc070::Return
 #t::
     WinGet, tp, Transparent, A
     If tp =
-        Winset, Transparent, 160, A
+        Winset, Transparent, 230, A
     Else
         Winset, Transparent, OFF, A
     Return
 ;#u::
-;#v::
+#v::
+    Send ^c
+    Run "C:\Windows\notepad.exe"
+    Sleep 100
+    Send ^v
+    Return
 ;#w::
 ;#x::
 ;#y::
@@ -303,6 +308,17 @@ sc07B & v::
     return
 ;;; Utilities ;;;
 ;; Windows
+:*:1000@::10:00 
+:*:1100@::11:00 
+:*:1200@::12:00 
+:*:1300@::13:00 
+:*:1400@::14:00 
+:*:1500@::15:00 
+:*:1600@::16:00 
+:*:1700@::17:00 
+:*:1800@::18:00 
+:*:1900@::19:00 
+:*:2000@::20:00 
 :*:'dskq::
     Clipboard = %A_Desktop%
     Send ^v
@@ -322,6 +338,7 @@ sc07B & v::
 ;; Javascript
 :*:jsdq::/**{Enter}* {Enter}*/{Up}
 ;; Linux
+:*:{{bk::{{},.bak{}}
 :*:'eL::export LANG=ja_JP.UTF-8
 :*:'eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
 :*:s-v::set -o vi{Enter}
