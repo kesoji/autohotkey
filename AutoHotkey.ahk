@@ -337,6 +337,8 @@ sc07B & v::
 :*:2dv::2>/dev/null
 :*:{to::{,.org}
 :*:{fo::{.org,}
+;; Openssl
+:*:-teno::-text -noout  {BS}
 ;; Regular Expression
 :*:'igai::{^}(?{!}.*).*${Left 4}
 ;; Date and Time
