@@ -380,7 +380,7 @@ sc07B & v::
     FormatTimeAndPaste("HH:mm:ss")
     return
 :*: ]fd::
-    formattimeandpaste("_yyyyMMdd")
+    FormatTimeandPaste("_yyyyMMdd")
     return
 :*: ]yd::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
@@ -388,6 +388,7 @@ sc07B & v::
 :*: ]yyd::
     FormatTimeAndPaste("MŒd“ú(ddd)")
     return
+
 ; ’èŒ^•¶
 :*:'gkari::‚²Šm”F‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B
 
