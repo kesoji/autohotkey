@@ -17,90 +17,30 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
-;;; Program Path ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Program Path
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 App_explorer = "C:\Windows\explorer.exe"
 App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor := "C:\Windows\notepad.exe"
 App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 App_everything := "C:\Program Files\Everything\Everything.exe"
-
 ; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
 
-;;; IME script ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; IME script
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #Include IME.ahk
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Windows Key Customize
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#Include Winkey.ahk
+
 
 ;;; Disable Katakana / Hiragana
 sc070::Return
-
-;;; Windows Key Customize ;;;
-;#a:: ;Action Center
-;#b:: ;Set focus in the notification area
-#c:: ;Open Cortana in listening mode
-    Run https://www.google.com/calendar/render
-    Return
-;#d:: ;Show Desktop
-;#e:: ;Show Explorer
-;#f:: ;Open Feedback Hub and take a screenshot
-#g:: ;Open Game bar when a game is open
-    Save := Clipboard
-    Send ^c
-    Sleep 100
-    Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
-    Clipboard := Save
-    Return
-#h:: ;Start dictation
-    Run "%USERPROFILE%"
-    Return
-#i:: ;Open Settings
-    Run "C:\Program Files\Internet Explorer\iexplore.exe"
-    Return
-#j:: ;Set focus to a Windows tip when one is available.
-    Run "%USERPROFILE%\Desktop"
-    Return
-#k:: ;Open the Connect quick action
-    Run "%USERPROFILE%\Downloads"
-    Return
-;#l:: ;Lock
-;#m:: ;Minimize window
-#n::
-    Save := Clipboard
-    Send ^c
-    Sleep 500
-    Run %App_pdfviewer% "%Clipboard%"
-    Clipboard := Save
-    Return
-#o:: WinSet, AlwaysOnTop, toggle, A  ; A=active window
-;#p:: ;Display Setting
-;#q::
-;#r:: ;Show Run-command
-;#s:: ;Cortana
-#t::
-    WinGet, tp, Transparent, A
-    If tp =
-        Winset, Transparent, 230, A
-    Else
-        Winset, Transparent, OFF, A
-    Return
-;#u:: ;Open Ease of Access Center
-;#v:: ;Cycle through notifications
-#w::
-    Send ^c
-    Run "C:\Windows\notepad.exe"
-    Sleep 100
-    Send ^v
-    Return
-;#x:: ;Open the Quick Link menu
-;#y:: ;Switch input between Windows Mixed Reality and your desktop
-#z:: ;Show the commands available in an app in full-screen mode
-    Send {F2}
-    Sleep 50
-    Send ^c
-    Run %App_everything%
-    Sleep 1000
-    Send ^v
-    Send {BS}{BS}{BS}{BS}{BS}{BS}
-    Return
 
 ;;; Mouse Key
 ;d & h::
