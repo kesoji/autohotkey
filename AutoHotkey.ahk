@@ -35,31 +35,41 @@ sc070::Return
 
 ;;; Windows Key Customize ;;;
 ;#a:: ;Action Center
-#b::
-    Save := Clipboard
-    Send ^c
-    Sleep 500
-    Run %App_pdfviewer% "%Clipboard%"
-    Clipboard := Save
+;#b:: ;Set focus in the notification area
+#c:: ;Open Cortana in listening mode
+    Run https://www.google.com/calendar/render
     Return
-#c::Run https://www.google.com/calendar/render
 ;#d:: ;Show Desktop
 ;#e:: ;Show Explorer
-;#f:: ;Search
-#g::
+;#f:: ;Open Feedback Hub and take a screenshot
+#g:: ;Open Game bar when a game is open
     Save := Clipboard
     Send ^c
     Sleep 100
     Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
     Clipboard := Save
     Return
-#h::Run "%USERPROFILE%"
-#i::Run "C:\Program Files\Internet Explorer\iexplore.exe"
-#j::Run "%USERPROFILE%\Desktop"
-#k::Run "%USERPROFILE%\Downloads"
+#h:: ;Start dictation
+    Run "%USERPROFILE%"
+    Return
+#i:: ;Open Settings
+    Run "C:\Program Files\Internet Explorer\iexplore.exe"
+    Return
+#j:: ;Set focus to a Windows tip when one is available.
+    Run "%USERPROFILE%\Desktop"
+    Return
+#k:: ;Open the Connect quick action
+    Run "%USERPROFILE%\Downloads"
+    Return
 ;#l:: ;Lock
 ;#m:: ;Minimize window
-;#n::
+#n::
+    Save := Clipboard
+    Send ^c
+    Sleep 500
+    Run %App_pdfviewer% "%Clipboard%"
+    Clipboard := Save
+    Return
 #o:: WinSet, AlwaysOnTop, toggle, A  ; A=active window
 ;#p:: ;Display Setting
 ;#q::
@@ -72,17 +82,17 @@ sc070::Return
     Else
         Winset, Transparent, OFF, A
     Return
-;#u::
-#v::
+;#u:: ;Open Ease of Access Center
+;#v:: ;Cycle through notifications
+#w::
     Send ^c
     Run "C:\Windows\notepad.exe"
     Sleep 100
     Send ^v
     Return
-;#w::
-;#x::
-;#y::
-#z::
+;#x:: ;Open the Quick Link menu
+;#y:: ;Switch input between Windows Mixed Reality and your desktop
+#z:: ;Show the commands available in an app in full-screen mode
     Send {F2}
     Sleep 50
     Send ^c
