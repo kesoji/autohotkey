@@ -65,3 +65,8 @@
     Send ^v
     Send {BS}{BS}{BS}{BS}{BS}{BS}
     Return
+#LButton:: Send, #^{Left}
+#RButton:: Send, #^{Right}
+#MButton:: Send, {Volume_Mute}
+#WheelUp:: Send, {Volume_Up}
+#WheelDown:: Send, {Volume_Down}
