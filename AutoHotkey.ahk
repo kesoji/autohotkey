@@ -20,10 +20,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Program Path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-App_explorer = "C:\Windows\explorer.exe"
-App_browser := "C:\Program Files\Google\Chrome\Application\chrome.exe"
-App_editor := "C:\Windows\notepad.exe"
-App_pdfviewer := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
+App_explorer   := "C:\Windows\explorer.exe"
+App_browser    := "C:\Program Files\Google\Chrome\Application\chrome.exe"
+App_editor     := "C:\Windows\notepad.exe"
+App_pdfviewer  := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
 App_everything := "C:\Program Files\Everything\Everything.exe"
 ; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
@@ -37,6 +37,12 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ;;; Windows Key Customize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #Include Winkey.ahk
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Mouses Customize
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+~RButton & WheelDown::Send,^{Tab}
+~RButton & WheelUp::Send,^+{Tab}
 
 
 ;;; Disable Katakana / Hiragana
@@ -308,6 +314,8 @@ sc07B & v::
 :*:-teno::-text -noout  {BS}
 ;; Regular Expression
 :*:'igai::{^}(?{!}.*).*${Left 4}
+;; Git
+:*:gghub::git@github.com:
 ;; Date and Time
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
