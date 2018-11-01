@@ -264,21 +264,23 @@ sc07B & v::
     return
 ;;; Utilities ;;;
 ;; Windows
-:*:1000@::10:00 
-:*:1100@::11:00 
-:*:1200@::12:00 
-:*:1300@::13:00 
-:*:1400@::14:00 
-:*:1500@::15:00 
-:*:1600@::16:00 
-:*:1700@::17:00 
-:*:1800@::18:00 
-:*:1900@::19:00 
-:*:2000@::20:00 
+:*:1000@::10:00
+:*:1100@::11:00
+:*:1200@::12:00
+:*:1300@::13:00
+:*:1400@::14:00
+:*:1500@::15:00
+:*:1600@::16:00
+:*:1700@::17:00
+:*:1800@::18:00
+:*:1900@::19:00
+:*:2000@::20:00
 :*:'dskq::
     Clipboard = %A_Desktop%
     Send ^v
     return
+;; Util
+:*:slackcurl::curl -d '{{}"text":"hoge"{}}'{Space}
 ;; Mail
 :*:'fme::from:me
 :*:'tme::to:me
@@ -286,7 +288,7 @@ sc07B & v::
 :*:`=IDR::=INDIRECT()
 :*:`=IDX::=INDEX()
 :*:`=NW::=NOW()
-:*:`#dbg::Debug.Print 
+:*:`#dbg::Debug.Print{Space}
 ;; Perl
 :*:usuw::use strict;{Enter}use warnings;
 ;; Shell
@@ -297,17 +299,19 @@ sc07B & v::
 :*:{{bk::{{},.bak{}}
 :*:'eL::export LANG=ja_JP.UTF-8
 :*:'eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
+:*:'vimi::apt update && apt install -y vim{Space}
 :*:s-v::set -o vi{Enter}
 :*:'gip::/sbin/ip a|grep inet
 :*:'ip::/sbin/ip a|grep inet
-:*:grepl::grep --line-buffered 
-:*:egrepl::egrep --line-buffered 
-:*:fgrepl::fgrep --line-buffered 
+:*:grepl::grep --line-buffered{Space}
+:*:egrepl::egrep --line-buffered{Space}
+:*:fgrepl::fgrep --line-buffered{Space}
 :*:vlm::/var/log/messages
 :*:/vl::/var/log/
 :*:'log::Logger.log();{Left}{Left}
 :*:vbar::|
 :*:2dv::2>/dev/null
+:*:12dv::>/dev/null 2>&1
 :*:{to::{,.org}
 :*:{fo::{.org,}
 ;; Openssl
@@ -455,16 +459,16 @@ Esc:: ; Just send Esc at converting.
 
   Credit for explaining this method goes to BrandonLive:
   http://brandonlive.com/2008/04/27/getting-the-shell-to-run-an-application-for-you-part-2-how/
- 
+
   Shell.ShellExecute(File [, Arguments, Directory, Operation, Show])
   http://msdn.microsoft.com/en-us/library/windows/desktop/gg537745
 */
 ShellRun(prms*)
 {
     shellWindows := ComObjCreate("{9BA05972-F6A8-11CF-A442-00A0C90A8F39}")
-    
-    desktop := shellWindows.Item(ComObj(19, 8)) ; VT_UI4, SCW_DESKTOP                
-   
+
+    desktop := shellWindows.Item(ComObj(19, 8)) ; VT_UI4, SCW_DESKTOP
+
     ; Retrieve top-level browser object.
     if ptlb := ComObjQuery(desktop
         , "{4C96BE40-915C-11CF-99D3-00AA004AE837}"  ; SID_STopLevelBrowser
@@ -476,17 +480,17 @@ ShellRun(prms*)
             ; Define IID_IDispatch.
             VarSetCapacity(IID_IDispatch, 16)
             NumPut(0x46000000000000C0, NumPut(0x20400, IID_IDispatch, "int64"), "int64")
-           
+
             ; IShellView.GetItemObject -> IDispatch (object which implements IShellFolderViewDual)
             DllCall(NumGet(NumGet(psv+0)+15*A_PtrSize), "ptr", psv
                 , "uint", 0, "ptr", &IID_IDispatch, "ptr*", pdisp:=0)
-           
+
             ; Get Shell object.
             shell := ComObj(9,pdisp,1).Application
-           
+
             ; IShellDispatch2.ShellExecute
             shell.ShellExecute(prms*)
-           
+
             ObjRelease(psv)
         }
         ObjRelease(ptlb)
