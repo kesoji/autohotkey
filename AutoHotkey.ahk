@@ -320,6 +320,8 @@ sc07B & v::
 :*:'igai::{^}(?{!}.*).*${Left 4}
 ;; Git
 :*:gghub::git@github.com:
+;; Docker
+:*:venvrc::echo "export DOCKER_VOLUME_PATH_BASE=``pwd``" >> .envrc
 ;; Date and Time
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
