@@ -70,3 +70,5 @@
 #MButton:: Send, {Volume_Mute}
 #WheelUp:: Send, {Volume_Up}
 #WheelDown:: Send, {Volume_Down}
+#[:: Send, {Volume_Up}
+#]:: Send, {Volume_Down}
