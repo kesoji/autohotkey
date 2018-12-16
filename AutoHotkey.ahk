@@ -321,6 +321,7 @@ sc07B & v::
 :*:'igai::{^}(?{!}.*).*${Left 4}
 ;; Git
 :*:gghub::git@github.com:
+:*:gglab::git@gitlab.com:
 ;; Docker
 :*:venvrc::echo "export DOCKER_VOLUME_PATH_BASE=``pwd``" >> .envrc
 ;; Date and Time
