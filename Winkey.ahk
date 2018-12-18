@@ -72,3 +72,4 @@
 #WheelDown:: Send, {Volume_Down}
 #[:: Send, {Volume_Up}
 #]:: Send, {Volume_Down}
+#@:: Send, {Volume_Mute}
