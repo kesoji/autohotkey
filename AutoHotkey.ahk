@@ -158,8 +158,20 @@ sc079 & c::MouseClick, Left, , , , D
 sc079 & v::MouseClick, Left, , , , U
 ; HJKL
 sc07B & h::Send,{Blind}{Left}
-sc07B & j::Send,{Blind}{Down}
-sc07B & k::Send,{Blind}{Up}
+sc07B & j::
+    if (GetKeyState("LWin", "P")) {
+        Send, #^{Right}
+    } else {
+        Send,{Blind}{Down}
+    }
+    Return
+sc07B & k::
+    if (GetKeyState("LWin", "P")) {
+        Send, #^{Left}
+    } else {
+        Send,{Blind}{Up}
+    }
+    Return
 sc07B & l::Send,{Blind}{Right}
 sc079 & l::
 sc079 & k::

@@ -65,6 +65,9 @@
     Send ^v
     Send {BS}{BS}{BS}{BS}{BS}{BS}
     Return
+;#,:: ;Temporarily peek at the desktop.
+;#.:: ;Open emoji panel.
+
 #LButton:: Send, #^{Left}
 #RButton:: Send, #^{Right}
 #MButton:: Send, {Volume_Mute}
