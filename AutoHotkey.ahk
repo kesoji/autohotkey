@@ -23,7 +23,7 @@
 App_explorer   := "C:\Windows\explorer.exe"
 App_browser    := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 App_editor     := "C:\Windows\notepad.exe"
-App_pdfviewer  := "C:\Program Files\Adobe\Reader 11.0\Reader\AcroRd32.exe"
+App_pdfviewer  := "C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
 App_everything := "C:\Program Files\Everything\Everything.exe"
 ; !! OVERRIDE PROGRAM PATH !!
 #Include LocalOnly.ahk
