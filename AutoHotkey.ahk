@@ -336,6 +336,9 @@ sc07B & v::
 :*:gglab::git@gitlab.com:
 ;; Docker
 :*:venvrc::echo "export DOCKER_VOLUME_PATH_BASE=``pwd``" >> .envrc
+;; Markdown
+:*:``rb::``````ruby{Enter}{Enter}``````{Up}
+:*:``pp::``````php{Enter}{Enter}``````{Up}
 ;; Date and Time
 :*: ]d::
     FormatTimeAndPaste("yyyy/MM/dd")
