@@ -291,6 +291,8 @@ sc07B & v::
     Clipboard = %A_Desktop%
     Send ^v
     return
+;; Typo
+:*:localhsot::localhost
 ;; Util
 :*:slackcurl::curl -d '{{}"text":"hoge"{}}'{Space}
 ;; Mail
