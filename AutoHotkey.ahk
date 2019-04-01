@@ -329,6 +329,7 @@ sc07B & v::
 :*:12dv::>/dev/null 2>&1
 :*:{to::{,.org}
 :*:{fo::{.org,}
+:*:'ctop::docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 ;; Openssl
 :*:-teno::-text -noout  {BS}
 ;; Regular Expression
