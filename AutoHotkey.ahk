@@ -294,7 +294,8 @@ sc07B & v::
 ;; Typo
 :*:localhsot::localhost
 ;; Util
-:*:slackcurl::curl -d '{{}"text":"hoge"{}}'{Space}
+:*:curlslack::curl -d '{{}"text":"hoge"{}}'{Space}
+:*:curlxml::curl -XPOST -H "Content-type: text/xml" --data-binary @
 ;; Mail
 :*:'fme::from:me
 :*:'tme::to:me
@@ -330,6 +331,7 @@ sc07B & v::
 :*:{to::{,.org}
 :*:{fo::{.org,}
 :*:'ctop::docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+:*:nginxreload::nginx -t && nginx -s reload
 ;; Openssl
 :*:-teno::-text -noout  {BS}
 ;; Regular Expression
