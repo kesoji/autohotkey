@@ -339,12 +339,13 @@ sc07B & v::
 ;; Git
 :*:gghub::git@github.com:
 :*:gglab::git@gitlab.com:
+:*:gitnp:: git --no-pager 
 :*:gstaf::"style: autofmt"
 ;; Docker
 :*:venvrc::echo "export DOCKER_VOLUME_PATH_BASE=``pwd``" >> .envrc
 ;; Ruby / Rails
-:*:buer::bundle exec rails
-:*:buex::bundle exec
+:*:buer::bundle exec rails 
+:*:buex::bundle exec 
 ;; Markdown
 :*:``rb::``````ruby{Enter}{Enter}``````{Up}
 :*:``pp::``````php{Enter}{Enter}``````{Up}
