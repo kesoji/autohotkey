@@ -383,7 +383,10 @@ sc07B & v::
     return
 
 ; 定型文
-:*:'gkari::ご確認ありがとうございました。
+::gkari::ご確認ありがとうございました。
+::itq::
+    SendInput,{Enter}{Enter}いつもお世話になっております。%MyFamilyName%です。{Enter}{Enter}{Enter}{Enter}よろしくお願いいたします。{Enter}%MyFamilyName%{Up}{Up}{Up}
+    return
 
 
 ; Functions
