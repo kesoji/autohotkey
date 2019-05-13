@@ -44,16 +44,44 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ~RButton & WheelDown::Send,^{Tab}
 ~RButton & WheelUp::Send,^+{Tab}
 
-
 >!0::Reload
+>!9::ShellRun(App_editor, A_ScriptFullPath)
 >!j::Send,{Down}
 >!k::Send,{Up}
 >!l::Send,{Right}
 >!h::Send,{Left}
-!j::Send,{Down}
-!k::Send,{Up}
-!l::Send,{Right}
-!h::Send,{Left}
+
+; Toggle Left Alt
+>^j::
+if AltFlg
+    AltFlg := false
+Else
+    AltFlg := true
+Return
+!j::
+if AltFlg
+    Send,{Down}
+Else
+    Send,!j
+Return
+!k::
+if AltFlg
+    Send,{Up}
+Else
+    Send,!k
+Return
+!l::
+if AltFlg
+    Send,{Right}
+Else
+    Send,!l
+Return
+!h::
+if AltFlg
+    Send,{Left}
+Else
+    Send,!h
+Return
 
 ; LButton::
 ; If GetKeyState("RButton", "P")
@@ -126,15 +154,7 @@ sc07B & 7::
     Sleep 300
     Clipboard := Save
     Return
-sc07B & 8::
-    Save := Clipboard
-    Send ^c
-    Sleep 300
-    StringReplace, Clipboard, Clipboard, /, \, All
-    ShellRun(App_editor, A_ScriptFullPath)
-    Sleep 300
-    Clipboard := Save
-    Return
+sc07B & 9::ShellRun(App_editor, A_ScriptFullPath)
 sc07B & -::Send ^{NumpadAdd} ;Auto resize column on Explorer
 sc07B & LButton::
     If GetKeyState("Shift", "P") {
