@@ -86,7 +86,7 @@ sc070::Return
 
 try {
     sc07B::sc07B
-    sc079::Send, sc079
+    sc079::Send, {sc079}
 } catch e {
     msgbox e
     msgbox "hoge"
