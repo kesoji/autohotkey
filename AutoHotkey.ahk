@@ -156,6 +156,7 @@ sc07B & 7::
     Clipboard := Save
     Return
 sc07B & 9::ShellRun(App_editor, A_ScriptFullPath)
+sc079 & 9::ShellRun(App_editor, A_ScriptFullPath)
 sc07B & -::Send ^{NumpadAdd} ;Auto resize column on Explorer
 sc07B & LButton::
     If GetKeyState("Shift", "P") {
