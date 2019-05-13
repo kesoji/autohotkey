@@ -163,7 +163,8 @@ try {
 
 
     sc07B::sc07B
-    ;sc079::sc079
+    sc079::sc079
+
     sc079 & d::MouseClick
     sc079 & f::MouseClick, Right
     sc079 & c::MouseClick, Left, , , , D
