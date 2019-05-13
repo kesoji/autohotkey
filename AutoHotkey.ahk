@@ -50,6 +50,10 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 >!k::Send,{Up}
 >!l::Send,{Right}
 >!h::Send,{Left}
+!j::Send,{Down}
+!k::Send,{Up}
+!l::Send,{Right}
+!h::Send,{Left}
 
 ; LButton::
 ; If GetKeyState("RButton", "P")
