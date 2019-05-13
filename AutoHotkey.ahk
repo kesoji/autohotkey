@@ -121,6 +121,7 @@ try {
 }
 
 sc07B & 0::Reload
+sc079 & 0::Reload
 sc07B & 1::Send,^+{Tab}
 sc07B & 2::Send,^{Tab}
 sc07B & 3::Send,!{Left}
