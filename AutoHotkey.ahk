@@ -58,6 +58,24 @@ if AltFlg
 Else
     AltFlg := true
 Return
+>^/::
+if AltFlg
+    AltFlg := false
+Else
+    AltFlg := true
+Return
+$Ctrl::
+    Keywait, Ctrl, U
+    Keywait, Ctrl, D T0.2 
+    If (ErrorLevel=1) ;直前のコマンド＝Keywaitがタイムアウトで失敗＝1なら
+       Send, {Ctrl}
+    Else
+        if AltFlg
+            AltFlg := false
+        Else
+            AltFlg := true
+    Return
+
 !j::
 if AltFlg
     Send,{Down}
