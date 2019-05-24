@@ -47,9 +47,47 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 >!0::Reload
 >!9::ShellRun(App_editor, A_ScriptFullPath)
 >!j::Send,{Down}
+!j::
+if AltFlg
+    Send,{Down}
+Else
+    Send,!j
+Return
 >!k::Send,{Up}
+!k::
+if AltFlg
+    Send,{Up}
+Else
+    Send,!k
+Return
 >!l::Send,{Right}
+!l::
+if AltFlg
+    Send,{Right}
+Else
+    Send,!l
+Return
 >!h::Send,{Left}
+!h::
+if AltFlg
+    Send,{Left}
+Else
+    Send,!h
+Return
+>!z::Send,{Home}
+!z::
+if AltFlg
+    Send,{Home}
+Else
+    Send,!h
+Return
+>!x::Send,{End}
+!x::
+if AltFlg
+    Send,{End}
+Else
+    Send,!h
+Return
 
 ; Toggle Left Alt
 >^j::
@@ -76,30 +114,6 @@ $Ctrl::
             AltFlg := true
     Return
 
-!j::
-if AltFlg
-    Send,{Down}
-Else
-    Send,!j
-Return
-!k::
-if AltFlg
-    Send,{Up}
-Else
-    Send,!k
-Return
-!l::
-if AltFlg
-    Send,{Right}
-Else
-    Send,!l
-Return
-!h::
-if AltFlg
-    Send,{Left}
-Else
-    Send,!h
-Return
 
 ; LButton::
 ; If GetKeyState("RButton", "P")
