@@ -46,72 +46,34 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 
 >!0::Reload
 >!9::ShellRun(App_editor, A_ScriptFullPath)
->!j::Send,{Down}
-!j::
-if AltFlg
-    Send,{Down}
-Else
-    Send,!j
-Return
->!k::Send,{Up}
-!k::
-if AltFlg
-    Send,{Up}
-Else
-    Send,!k
-Return
->!l::Send,{Right}
-!l::
-if AltFlg
-    Send,{Right}
-Else
-    Send,!l
-Return
+^h::Send % GetKeyState("Space", "P") ? "{Left}"  : "^h"
+^j::Send % GetKeyState("Space", "P") ? "{Down}"  : "^j"
+^k::Send % GetKeyState("Space", "P") ? "{Up}"    : "^k"
+^l::Send % GetKeyState("Space", "P") ? "{Right}" : "^l"
 >!h::Send,{Left}
-!h::
-if AltFlg
-    Send,{Left}
-Else
-    Send,!h
-Return
->!z::Send,{Home}
-!z::
-if AltFlg
-    Send,{Home}
-Else
-    Send,!h
-Return
->!x::Send,{End}
-!x::
-if AltFlg
-    Send,{End}
-Else
-    Send,!h
-Return
+>!j::Send {Down}
+>!k::Send {Up}
+>!l::Send {Right}
+!h::Send % AltFlg ? "{Left}"  : "!h"
+!j::Send % AltFlg ? "{Down}"  : "!j"
+!k::Send % AltFlg ? "{Up}"    : "!k"
+!l::Send % AltFlg ? "{Right}" : "!l"
+
+>!z::Send {Home}
+!z::Send % AltFlg ? "{Home}" : "!h"
+>!x::Send {End}
+!x::Send % AltFlg ? "{End}" : "!h"
 
 ; Toggle Left Alt
->^j::
-if AltFlg
-    AltFlg := false
-Else
-    AltFlg := true
-Return
->^/::
-if AltFlg
-    AltFlg := false
-Else
-    AltFlg := true
-Return
+>^j::AltFlg := AltFlg ? false : true
+>^/::AltFlg := AltFlg ? false : true
 $Ctrl::
     Keywait, Ctrl, U
-    Keywait, Ctrl, D T0.2 
+    Keywait, Ctrl, D T0.2
     If (ErrorLevel=1) ;直前のコマンド＝Keywaitがタイムアウトで失敗＝1なら
-       Send, {Ctrl}
+        Send, {Ctrl}
     Else
-        if AltFlg
-            AltFlg := false
-        Else
-            AltFlg := true
+        AltFlg := AltFlg ? false : true
     Return
 
 
