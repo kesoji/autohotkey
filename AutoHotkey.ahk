@@ -50,6 +50,8 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ^j::Send % GetKeyState("Space", "P") ? "{Down}"  : "^j"
 ^k::Send % GetKeyState("Space", "P") ? "{Up}"    : "^k"
 ^l::Send % GetKeyState("Space", "P") ? "{Right}" : "^l"
+^w::Send % GetKeyState("Space", "P") ? "{PgUp}"  : "^w"
+^e::Send % GetKeyState("Space", "P") ? "{PgDn}"  : "^e"
 >!h::Send,{Left}
 >!j::Send {Down}
 >!k::Send {Up}
