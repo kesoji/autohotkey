@@ -180,6 +180,7 @@ RAlt up::
 
 >!0::Reload
 >!9::ShellRun(App_editor, A_ScriptFullPath)
+^[::Send {Esc}
 ^h::Send % GetKeyState("Space", "P") ? "{Left}"  : "^h"
 ^j::Send % GetKeyState("Space", "P") ? "{Down}"  : "^j"
 ^k::Send % GetKeyState("Space", "P") ? "{Up}"    : "^k"
