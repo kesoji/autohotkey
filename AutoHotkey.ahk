@@ -201,8 +201,9 @@ RAlt up::
 >!x::Send {End}
 !x::Send % AltFlg ? "{End}" : "!h"
 
+!Backspace::Send {Delete}
+
 ; Toggle Left Alt
->^j::AltFlg := AltFlg ? false : true
 >^/::AltFlg := AltFlg ? false : true
 $Ctrl::
     Keywait, Ctrl, U
@@ -696,4 +697,3 @@ ShellRun(prms*)
         ObjRelease(ptlb)
     }
 }
-
