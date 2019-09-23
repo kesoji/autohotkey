@@ -443,6 +443,21 @@ sc07B & v::
     }
     return
 
+^n::
+    if (WinActive("ahk_class keypirinha_wndcls_run")) {
+        Send,{Down}
+    } else {
+        Send,^n
+    }
+    return
+^p::
+    if (WinActive("ahk_class keypirinha_wndcls_run")) {
+        Send,{Up}
+    } else {
+        Send,^p
+    }
+    return
+
 ;;; Utilities ;;;
 ;; Windows
 :*:1000@::10:00
