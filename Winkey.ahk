@@ -9,7 +9,16 @@
     Save := Clipboard
     Send ^c
     Sleep 100
-    Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
+    if (WinExist("ahk_exe chrome.exe")) {
+        WinActivate
+        Send,^t
+        Sleep 100
+        Send,^v
+        Sleep 25
+        Send,{Enter}
+    } else {
+        Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
+    }
     Clipboard := Save
     Return
 ;#g:: ;Open Game bar when a game is open
