@@ -5,14 +5,14 @@
     Return
 ;#d:: ;Show Desktop
 ;#e:: ;Show Explorer
-;#f:: ;Open Feedback Hub and take a screenshot
-#g:: ;Open Game bar when a game is open
+#f:: ;Open Feedback Hub and take a screenshot
     Save := Clipboard
     Send ^c
     Sleep 100
     Run "https://www.google.co.jp/search?q=%Clipboard%&oq=&gs_l=&pbx=1&hl=ja"
     Clipboard := Save
     Return
+;#g:: ;Open Game bar when a game is open
 #h:: ;Start dictation
     Run "%USERPROFILE%"
     Return
