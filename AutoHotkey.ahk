@@ -476,7 +476,7 @@ sc07B & v::
 :*:1800@::18:00
 :*:1900@::19:00
 :*:2000@::20:00
-:*:'dskq::
+:*:*dskq::
     Clipboard = %A_Desktop%
     Send ^v
     return
@@ -486,8 +486,8 @@ sc07B & v::
 :*:curlslack::curl -d '{{}"text":"hoge"{}}'{Space}
 :*:curlxml::curl -XPOST -H "Content-type: text/xml" --data-binary @
 ;; Mail
-:*:'fme::from:me
-:*:'tme::to:me
+:*:*fme::from:me
+:*:*tme::to:me
 ;; Excel
 :*:`=IDR::=INDIRECT()
 :*:`=IDX::=INDEX()
@@ -502,29 +502,29 @@ sc07B & v::
 ;; Linux
 :*:checkcron::for i in ``\ls -R1 --color=none /etc/cron* /var/spool/cron```; do echo $i | grep -q ":$"; if [ $? -eq 0 ]; then echo -e "{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}\n$i\n{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}{#}"; DIR=${{}i`%`%:{}}/; else echo -e "\e[37;42;1m${{}DIR{}}$i\e[m"; cat ${{}DIR{}}$i| grep -v "{^}{#}"; fi; done; unset DIR
 :*:{{bk::{{},.bak{}}
-:*:'eL::export LANG=ja_JP.UTF-8
-:*:'eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
-:*:'vimi::apt update && apt install -y vim{Space}
+:*:*eL::export LANG=ja_JP.UTF-8
+:*:*eP::export PS1="\[\e[1;34m\][\u@\h \W]$ \[\e[00m\]"
+:*:*vimi::apt update && apt install -y vim{Space}
 :*:s-v::set -o vi{Enter}
-:*:'gip::/sbin/ip a|grep inet
-:*:'ip::/sbin/ip a|grep inet
+:*:*gip::/sbin/ip a|grep inet
+:*:*ip::/sbin/ip a|grep inet
 :*:grepl::grep --line-buffered{Space}
 :*:egrepl::egrep --line-buffered{Space}
 :*:fgrepl::fgrep --line-buffered{Space}
 :*:vlm::/var/log/messages
 :*:/vl::/var/log/
-:*:'log::Logger.log();{Left}{Left}
+:*:*log::Logger.log();{Left}{Left}
 :*:vbar::
 :*:2dv::2>/dev/null
 :*:12dv::>/dev/null 2>&1
 :*:{to::{,.org}
 :*:{fo::{.org,}
-:*:'ctop::docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+:*:*ctop::docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 :*:nginxreload::nginx -t && nginx -s reload
 ;; Openssl
 :*:-teno::-text -noout  {BS}
 ;; Regular Expression
-:*:'igai::{^}(?{!}.*).*${Left 4}
+:*:*igai::{^}(?{!}.*).*${Left 4}
 ;; Git
 :*:gghub::git@github.com:
 :*:gglab::git@gitlab.com:
