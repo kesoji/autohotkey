@@ -177,6 +177,7 @@ RAlt up::
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ~RButton & WheelDown::Send,^{Tab}
 ~RButton & WheelUp::Send,^+{Tab}
+^MButton::Send,{Delete}
 
 >!0::Reload
 >!9::ShellRun(App_editor, A_ScriptFullPath)
@@ -191,6 +192,10 @@ RAlt up::
 >!j::Send {Down}
 >!k::Send {Up}
 >!l::Send {Right}
+!+h::Send !+{Left}
+!+j::Send !+{Down}
+!+k::Send !+{Up}
+!+l::Send !+{Right}
 !h::Send % AltFlg ? "{Left}"  : "!h"
 !j::Send % AltFlg ? "{Down}"  : "!j"
 !k::Send % AltFlg ? "{Up}"    : "!k"
@@ -509,7 +514,7 @@ sc07B & v::
 :*:vlm::/var/log/messages
 :*:/vl::/var/log/
 :*:'log::Logger.log();{Left}{Left}
-:*:vbar::|
+:*:vbar::
 :*:2dv::2>/dev/null
 :*:12dv::>/dev/null 2>&1
 :*:{to::{,.org}
