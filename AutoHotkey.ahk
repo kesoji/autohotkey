@@ -1,3 +1,7 @@
+;; Memo
+; * 任意の修飾キーを表すワイルドカード
+; ~ イベントを乗っ取らず、そのままシステムに通す
+
 ; IMPORTANT INFO ABOUT GETTING STARTED: Lines that start with a
 ; semicolon, such as this one, are comments.  They are not executed.
 
@@ -55,15 +59,15 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 *~a::
 *~b::
 *~c::
-*~d::
+;*~d::
 *~e::
 *~f::
 *~g::
-*~h::
+;*~h::
 *~i::
-*~j::
-*~k::
-*~l::
+;*~j::
+;*~k::
+;*~l::
 *~m::
 *~n::
 *~o::
@@ -171,6 +175,78 @@ RAlt up::
 ;;; Windows Key Customize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #Include Winkey.ahk
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Experimenting
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+d::
+
+    ; 前回の
+    If (A_TimeSincePriorHotKey < 100) {
+        Send, d
+        Return
+    }
+    if (A_TimeSincePriorHotKey > 1000 && (A_PriorKey = "h" || A_PriorKey = "j" || A_PriorKey = "k" || A_PriorKey = "l")) {
+        Send, d
+        Return
+    }
+    SetTimer, clearDMode, -100
+    isDMode := True
+    While isDMode {
+        If GetKeyState("h", "P") {
+            Send, {Left}
+            SetTimer, clearDMode, Off
+        }
+        If GetKeyState("j", "P") {
+            Send, {Down}
+            SetTimer, clearDMode, Off
+        }
+        If GetKeyState("k", "P") {
+            Send, {Up}
+            SetTimer, clearDMode, Off
+        }
+        If GetKeyState("l", "P") {
+            Send, {Right}
+            SetTimer, clearDMode, Off
+        }
+        If !GetKeyState("d", "P") {
+            isDmode := False
+            Break
+        }
+        Sleep 25
+    }
+    Return
+
+    clearDMode:
+        isDMode := False
+        Send, d
+        Return
+
+h::
+    If isDMode {
+        Return
+    }
+    Send, h
+    Return
+j::
+    If isDMode {
+        Return
+    }
+    Send, j
+    Return
+k::
+    If isDMode {
+        Return
+    }
+    Send, k
+    Return
+l::
+    If isDMode {
+        Return
+    }
+    Send, l
+    Return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Mouses Customize
