@@ -493,6 +493,9 @@ sc07B & WheelDown::
         send,^{PgDn}
     return
 ; Chars
+!+-::Send,`
+>![::JapaneseBracketOpen()
+>!]::JapaneseBracketClose()
 sc07B & Up::send,ª
 sc079 & Up::send,ª
 sc07B & Down::send,«
