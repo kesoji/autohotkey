@@ -180,73 +180,73 @@ RAlt up::
 ;;; Experimenting
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-d::
-
-    ; ‘O‰ñ‚Ì
-    If (A_TimeSincePriorHotKey < 100) {
-        Send, d
-        Return
-    }
-    if (A_TimeSincePriorHotKey > 1000 && (A_PriorKey = "h" || A_PriorKey = "j" || A_PriorKey = "k" || A_PriorKey = "l")) {
-        Send, d
-        Return
-    }
-    SetTimer, clearDMode, -100
-    isDMode := True
-    While isDMode {
-        If GetKeyState("h", "P") {
-            Send, {Left}
-            SetTimer, clearDMode, Off
-        }
-        If GetKeyState("j", "P") {
-            Send, {Down}
-            SetTimer, clearDMode, Off
-        }
-        If GetKeyState("k", "P") {
-            Send, {Up}
-            SetTimer, clearDMode, Off
-        }
-        If GetKeyState("l", "P") {
-            Send, {Right}
-            SetTimer, clearDMode, Off
-        }
-        If !GetKeyState("d", "P") {
-            isDmode := False
-            Break
-        }
-        Sleep 25
-    }
-    Return
-
-    clearDMode:
-        isDMode := False
-        Send, d
-        Return
-
-h::
-    If isDMode {
-        Return
-    }
-    Send, h
-    Return
-j::
-    If isDMode {
-        Return
-    }
-    Send, j
-    Return
-k::
-    If isDMode {
-        Return
-    }
-    Send, k
-    Return
-l::
-    If isDMode {
-        Return
-    }
-    Send, l
-    Return
+;d::
+;
+;    ; ‘O‰ñ‚Ì
+;    If (A_TimeSincePriorHotKey < 100) {
+;        Send, d
+;        Return
+;    }
+;    if (A_TimeSincePriorHotKey > 1000 && (A_PriorKey = "h" || A_PriorKey = "j" || A_PriorKey = "k" || A_PriorKey = "l")) {
+;        Send, d
+;        Return
+;    }
+;    SetTimer, clearDMode, -100
+;    isDMode := True
+;    While isDMode {
+;        If GetKeyState("h", "P") {
+;            Send, {Left}
+;            SetTimer, clearDMode, Off
+;        }
+;        If GetKeyState("j", "P") {
+;            Send, {Down}
+;            SetTimer, clearDMode, Off
+;        }
+;        If GetKeyState("k", "P") {
+;            Send, {Up}
+;            SetTimer, clearDMode, Off
+;        }
+;        If GetKeyState("l", "P") {
+;            Send, {Right}
+;            SetTimer, clearDMode, Off
+;        }
+;        If !GetKeyState("d", "P") {
+;            isDmode := False
+;            Break
+;        }
+;        Sleep 25
+;    }
+;    Return
+;
+;    clearDMode:
+;        isDMode := False
+;        Send, d
+;        Return
+;
+;h::
+;    If isDMode {
+;        Return
+;    }
+;    Send, h
+;    Return
+;j::
+;    If isDMode {
+;        Return
+;    }
+;    Send, j
+;    Return
+;k::
+;    If isDMode {
+;        Return
+;    }
+;    Send, k
+;    Return
+;l::
+;    If isDMode {
+;        Return
+;    }
+;    Send, l
+;    Return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Mouses Customize
@@ -600,6 +600,8 @@ sc07B & v::
 :*:{fo::{.org,}
 :*:*ctop::docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 :*:nginxreload::nginx -t && nginx -s reload
+;; Aws
+:*:cloudwatchsample::{{} $.level >= 200 && $.message = "failed *" {}}{Left}{Left}{Left}
 ;; Openssl
 :*:-teno::-text -noout  {BS}
 ;; Regular Expression
