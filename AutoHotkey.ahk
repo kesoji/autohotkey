@@ -607,6 +607,7 @@ sc07B & v::
 ;; Regular Expression
 :*:*igai::{^}(?{!}.*).*${Left 4}
 ;; Git
+:*:ghemail::6465251{+}kesoji@users.noreply.github.com
 :*:gghub::git@github.com:
 :*:gglab::git@gitlab.com:
 :*:gitnp:: git --no-pager 
