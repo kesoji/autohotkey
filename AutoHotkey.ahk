@@ -1,6 +1,6 @@
 ;; Memo
-; * ”CˆÓ‚ÌCüƒL[‚ğ•\‚·ƒƒCƒ‹ƒhƒJ[ƒh
-; ~ ƒCƒxƒ“ƒg‚ğæ‚Áæ‚ç‚¸A‚»‚Ì‚Ü‚ÜƒVƒXƒeƒ€‚É’Ê‚·
+; * ä»»æ„ã®ä¿®é£¾ã‚­ãƒ¼ã‚’è¡¨ã™ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰
+; ~ ã‚¤ãƒ™ãƒ³ãƒˆã‚’ä¹—ã£å–ã‚‰ãšã€ãã®ã¾ã¾ã‚·ã‚¹ãƒ†ãƒ ã«é€šã™
 
 ; IMPORTANT INFO ABOUT GETTING STARTED: Lines that start with a
 ; semicolon, such as this one, are comments.  They are not executed.
@@ -42,20 +42,20 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; https://github.com/karakaram/alt-ime-ahk
 
-; ¶‰E Alt ƒL[‚Ì‹ó‘Å‚¿‚Å IME ‚Ì OFF/ON ‚ğØ‚è‘Ö‚¦‚é
+; å·¦å³ Alt ã‚­ãƒ¼ã®ç©ºæ‰“ã¡ã§ IME ã® OFF/ON ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
 ;
-; ¶ Alt ƒL[‚Ì‹ó‘Å‚¿‚Å IME ‚ğu‰p”v‚ÉØ‚è‘Ö‚¦
-; ‰E Alt ƒL[‚Ì‹ó‘Å‚¿‚Å IME ‚ğu‚©‚Èv‚ÉØ‚è‘Ö‚¦
-; Alt ƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚éŠÔ‚É‘¼‚ÌƒL[‚ğ‘Å‚Â‚Æ’Êí‚Ì Alt ƒL[‚Æ‚µ‚Ä“®ì
+; å·¦ Alt ã‚­ãƒ¼ã®ç©ºæ‰“ã¡ã§ IME ã‚’ã€Œè‹±æ•°ã€ã«åˆ‡ã‚Šæ›¿ãˆ
+; å³ Alt ã‚­ãƒ¼ã®ç©ºæ‰“ã¡ã§ IME ã‚’ã€Œã‹ãªã€ã«åˆ‡ã‚Šæ›¿ãˆ
+; Alt ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹é–“ã«ä»–ã®ã‚­ãƒ¼ã‚’æ‰“ã¤ã¨é€šå¸¸ã® Alt ã‚­ãƒ¼ã¨ã—ã¦å‹•ä½œ
 ;
 ; Author:     karakaram   http://www.karakaram.com/alt-ime-on-off
 
 ;#Include IME.ahk
 
-; Razer Synapse‚È‚ÇAƒL[ƒJƒXƒ^ƒ}ƒCƒYŒn‚Ìƒc[ƒ‹‚ğ•¹—p‚µ‚Ä‚¢‚é‚Æ‚«‚ÌƒGƒ‰[‘Îô
+; Razer Synapseãªã©ã€ã‚­ãƒ¼ã‚«ã‚¹ã‚¿ãƒã‚¤ã‚ºç³»ã®ãƒ„ãƒ¼ãƒ«ã‚’ä½µç”¨ã—ã¦ã„ã‚‹ã¨ãã®ã‚¨ãƒ©ãƒ¼å¯¾ç­–
 #MaxHotkeysPerInterval 350
 
-; å—v‚ÈƒL[‚ğ HotKey ‚Éİ’è‚µA‰½‚à‚¹‚¸ƒpƒXƒXƒ‹[‚·‚é
+; ä¸»è¦ãªã‚­ãƒ¼ã‚’ HotKey ã«è¨­å®šã—ã€ä½•ã‚‚ã›ãšãƒ‘ã‚¹ã‚¹ãƒ«ãƒ¼ã™ã‚‹
 *~a::
 *~b::
 *~c::
@@ -151,11 +151,11 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 *~PgDn::
     Return
 
-; ã•”ƒƒjƒ…[‚ªƒAƒNƒeƒBƒu‚É‚È‚é‚Ì‚ğ—}§
+; ä¸Šéƒ¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã‚‹ã®ã‚’æŠ‘åˆ¶
 *~LAlt::Send {Blind}{vk07}
 *~RAlt::Send {Blind}{vk07}
 
-; ¶ Alt ‹ó‘Å‚¿‚Å IME ‚ğ OFF
+; å·¦ Alt ç©ºæ‰“ã¡ã§ IME ã‚’ OFF
 LAlt up::
     if (A_PriorHotkey == "*~LAlt")
     {
@@ -163,7 +163,7 @@ LAlt up::
     }
     Return
 
-; ‰E Alt ‹ó‘Å‚¿‚Å IME ‚ğ ON
+; å³ Alt ç©ºæ‰“ã¡ã§ IME ã‚’ ON
 RAlt up::
     if (A_PriorHotkey == "*~RAlt")
     {
@@ -182,7 +182,7 @@ RAlt up::
 
 ;d::
 ;
-;    ; ‘O‰ñ‚Ì
+;    ; å‰å›ã®
 ;    If (A_TimeSincePriorHotKey < 100) {
 ;        Send, d
 ;        Return
@@ -289,7 +289,7 @@ RAlt up::
 $Ctrl::
     Keywait, Ctrl, U
     Keywait, Ctrl, D T0.2
-    If (ErrorLevel=1) ;’¼‘O‚ÌƒRƒ}ƒ“ƒhKeywait‚ªƒ^ƒCƒ€ƒAƒEƒg‚Å¸”s1‚È‚ç
+    If (ErrorLevel=1) ;ç›´å‰ã®ã‚³ãƒãƒ³ãƒ‰ï¼KeywaitãŒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã§å¤±æ•—ï¼1ãªã‚‰
         Send, {Ctrl}
     Else
         AltFlg := AltFlg ? false : true
@@ -312,12 +312,12 @@ $Ctrl::
 ;    While (GetKeyState("d", "P"))
 ;    {
 ;        MoveX := 0, MoveY := 0
-;        MoveX += GetKeyState("h", "P") ? -11 : 0	;GetKeyState() ‚Æ ?:‰‰Zq(ğŒ) (O€‰‰Zq) ‚Ì‘g‚İ‡‚í‚¹
+;        MoveX += GetKeyState("h", "P") ? -11 : 0	;GetKeyState() ã¨ ?:æ¼”ç®—å­(æ¡ä»¶) (ä¸‰é …æ¼”ç®—å­) ã®çµ„ã¿åˆã‚ã›
 ;        MoveY += GetKeyState("j", "P") ? 11 : 0
 ;        MoveY += GetKeyState("k", "P") ? -11 : 0
 ;        MoveX += GetKeyState("l", "P") ? 11 : 0
-;        MouseMove, %MoveX%, %MoveY%, 1, R		;ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğˆÚ“®‚·‚é
-;        Sleep, 0					;•‰‰×‚ª‚‚¢ê‡‚Íİ’è‚ğ•ÏX İ’è‚Å‚«‚é’l‚Í-1A0A10`m•b Ú×‚ÍSleep
+;        MouseMove, %MoveX%, %MoveY%, 1, R		;ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç§»å‹•ã™ã‚‹
+;        Sleep, 0					;è² è·ãŒé«˜ã„å ´åˆã¯è¨­å®šã‚’å¤‰æ›´ è¨­å®šã§ãã‚‹å€¤ã¯-1ã€0ã€10ï½mç§’ è©³ç´°ã¯Sleep
 ;    }
 ;    Return
 
@@ -344,9 +344,9 @@ sc07B & 5::
     Send ^c
     Sleep 300
     StringReplace, Clipboard, Clipboard, /, \, All
-    Clipboard := RegExReplace(Clipboard, "[<>ƒ„]", "")
-    Clipboard := RegExReplace(Clipboard, "^[ @]*", "")
-    Clipboard := RegExReplace(Clipboard, "[ @]+$", "")
+    Clipboard := RegExReplace(Clipboard, "[<>ï¼œï¼]", "")
+    Clipboard := RegExReplace(Clipboard, "^[ ã€€]*", "")
+    Clipboard := RegExReplace(Clipboard, "[ ã€€]+$", "")
     Run %App_explorer% "%Clipboard%"
     Sleep 300
     Clipboard := Save
@@ -493,17 +493,17 @@ sc07B & WheelDown::
         send,^{PgDn}
     return
 ; Chars
-!+-::Send,`
+!+-::Send,ï½
 >![::JapaneseBracketOpen()
 >!]::JapaneseBracketClose()
-sc07B & Up::send,ª
-sc079 & Up::send,ª
-sc07B & Down::send,«
-sc079 & Down::send,«
-sc07B & Right::send,¨
-sc079 & Right::send,¨
-sc07B & Left::send,©
-sc079 & Left::send,©
+sc07B & Up::send,â†‘
+sc079 & Up::send,â†‘
+sc07B & Down::send,â†“
+sc079 & Down::send,â†“
+sc07B & Right::send,â†’
+sc079 & Right::send,â†’
+sc07B & Left::send,â†
+sc079 & Left::send,â†
 sc07B & [::JapaneseBracketOpen()
 sc079 & [::JapaneseBracketOpen()
 sc07B & ]::JapaneseBracketClose()
@@ -650,13 +650,13 @@ sc07B & v::
     FormatTimeAndPaste("yyyy/MM/dd (ddd)")
     return
 :*: ]yyd::
-    FormatTimeAndPaste("MŒd“ú(ddd)")
+    FormatTimeAndPaste("Mæœˆdæ—¥(ddd)")
     return
 
-; ’èŒ^•¶
-::gkari::‚²Šm”F‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B
+; å®šå‹æ–‡
+::gkari::ã”ç¢ºèªã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã—ãŸã€‚
 ::itq::
-    SendInput,{Enter}{Enter}‚¢‚Â‚à‚¨¢˜b‚É‚È‚Á‚Ä‚¨‚è‚Ü‚·B%MyFamilyName%‚Å‚·B{Enter}{Enter}{Enter}{Enter}‚æ‚ë‚µ‚­‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B{Enter}%MyFamilyName%{Up}{Up}{Up}
+    SendInput,{Enter}{Enter}ã„ã¤ã‚‚ãŠä¸–è©±ã«ãªã£ã¦ãŠã‚Šã¾ã™ã€‚%MyFamilyName%ã§ã™ã€‚{Enter}{Enter}{Enter}{Enter}ã‚ˆã‚ã—ããŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚{Enter}%MyFamilyName%{Up}{Up}{Up}
     return
 
 
@@ -695,25 +695,25 @@ AddAngleBracketAndPaste() {
 }
 JapaneseBracketOpen() {
     If GetKeyState("Shift","P")
-        Send,w
+        Send,ã€
     Else
-        Send,y
+        Send,ã€
 }
 JapaneseBracketClose() {
     If GetKeyState("Shift","P")
-        Send,x
+        Send,ã€
     Else
-        Send,z
+        Send,ã€‘
 }
 JapaneseQuestionAndBikkuri() {
     If GetKeyState("Shift", "P")
-        Send,I
+        Send,ï¼
     Else
-        Send,H
+        Send,ï¼Ÿ
 }
 
 ;;; for Vim
-;;; ‹@”\‚µ‚Ä‚¢‚È‚¢à‚ ‚é
+;;; æ©Ÿèƒ½ã—ã¦ã„ãªã„èª¬ã‚ã‚‹
 ; For Terminal/Vim
 GroupAdd Terminal, ahk_class PuTTY
 GroupAdd Terminal, ahk_class mintty ; cygwin
