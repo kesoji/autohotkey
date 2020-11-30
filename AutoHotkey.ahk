@@ -33,11 +33,6 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 #Include LocalOnly.ahk
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; IME script
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#Include IME.ahk
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; IME on/off with alt
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; https://github.com/karakaram/alt-ime-ahk
@@ -51,6 +46,53 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 ; Author:     karakaram   http://www.karakaram.com/alt-ime-on-off
 
 ;#Include IME.ahk
+
+;; 上部メニューがアクティブになるのを抑制
+;*~LAlt::Send {Blind}{vk07}
+;*~RAlt::Send {Blind}{vk07}
+;; Alt空打ちで切替
+;LAlt up::
+;    if (A_PriorHotkey == "*~LAlt")
+;        IME_SET(0)
+;    Return
+;RAlt up::
+;    if (A_PriorHotkey == "*~RAlt")
+;        IME_SET(1)
+;    Return
+
+;;; for Vim
+;;; 機能していない説ある
+; For Terminal/Vim
+;GroupAdd Terminal, ahk_class PuTTY
+;GroupAdd Terminal, ahk_class mintty ; cygwin
+;GroupAdd TerminalVim, ahk_group Terminal
+;GroupAdd TerminalVim, ahk_class Vim
+;GroupAdd TerminalVim, ahk_class GVIM
+;
+;; ESC + IME
+;#IfWInActive, ahk_group TerminalVim
+;Esc:: ; Just send Esc at converting.
+;  if (IME_GET(A)) {
+;    if (IME_GetConverting(A)) {
+;      Send,{Esc}
+;    } else {
+;      IME_SET(1)
+;    }
+;  } else {
+;    Send,{Esc}
+;  }
+;  Return
+;^[:: ; Go to Normal mode (for vim) with IME off even at converting.
+;  if (IME_GET(A)) {
+;    Send,{Esc}
+;    Sleep 1 ; wait 1 ms (Need to stop converting)
+;    IME_SET(1)
+;    Send,{Esc}
+;  } else {
+;    Send,{Esc}
+;  }
+;  Return
+;#IfWInActive
 
 ; Razer Synapseなど、キーカスタマイズ系のツールを併用しているときのエラー対策
 #MaxHotkeysPerInterval 350
@@ -149,26 +191,6 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 *~End::
 *~PgUp::
 *~PgDn::
-    Return
-
-; 上部メニューがアクティブになるのを抑制
-*~LAlt::Send {Blind}{vk07}
-*~RAlt::Send {Blind}{vk07}
-
-; 左 Alt 空打ちで IME を OFF
-LAlt up::
-    if (A_PriorHotkey == "*~LAlt")
-    {
-        IME_SET(0)
-    }
-    Return
-
-; 右 Alt 空打ちで IME を ON
-RAlt up::
-    if (A_PriorHotkey == "*~RAlt")
-    {
-        IME_SET(1)
-    }
     Return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -711,40 +733,6 @@ JapaneseQuestionAndBikkuri() {
     Else
         Send,？
 }
-
-;;; for Vim
-;;; 機能していない説ある
-; For Terminal/Vim
-GroupAdd Terminal, ahk_class PuTTY
-GroupAdd Terminal, ahk_class mintty ; cygwin
-GroupAdd TerminalVim, ahk_group Terminal
-GroupAdd TerminalVim, ahk_class Vim
-GroupAdd TerminalVim, ahk_class GVIM
-
-; ESC + IME
-#IfWInActive, ahk_group TerminalVim
-Esc:: ; Just send Esc at converting.
-  if (IME_GET(A)) {
-    if (IME_GetConverting(A)) {
-      Send,{Esc}
-    } else {
-      IME_SET(1)
-    }
-  } else {
-    Send,{Esc}
-  }
-  Return
-^[:: ; Go to Normal mode (for vim) with IME off even at converting.
-  if (IME_GET(A)) {
-    Send,{Esc}
-    Sleep 1 ; wait 1 ms (Need to stop converting)
-    IME_SET(1)
-    Send,{Esc}
-  } else {
-    Send,{Esc}
-  }
-  Return
-#IfWInActive
 
 ; Note: From now on whenever you run AutoHotkey directly, this script
 ; will be loaded.  So feel free to customize it to suit your needs.
