@@ -564,6 +564,15 @@ sc07B & v::
     }
     return
 
+;;; Emacs Like ;;;
+; CapsLock->RCltrlにしている前提
+Rctrl & a::Send {Home}
+Rctrl & e::Send {End}
+Rctrl & n::Send {Down}
+Rctrl & p::Send {Up}
+Rctrl & h::Send {Backspace}
+Rctrl & d::Send {Delete}
+
 ;;; Utilities ;;;
 ;; Windows
 :*:1000@::10:00
