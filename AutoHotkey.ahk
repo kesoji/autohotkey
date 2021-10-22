@@ -306,6 +306,15 @@ App_everything := "C:\Program Files\Everything\Everything.exe"
 
 !Backspace::Send {Delete}
 
+
+q::
+if (WinActive("ahk_exe Among Us.exe")) {
+    Send,{Esc}
+} else {
+    Send,q
+}
+return
+
 ; Toggle Left Alt
 >^/::AltFlg := AltFlg ? false : true
 $Ctrl::
@@ -565,13 +574,42 @@ sc07B & v::
     return
 
 ;;; Emacs Like ;;;
+isExcludeEmacsTarget()
+{
+    IfWinActive, ahk_class Vim
+        Return 1
+    IfWinActive, ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+        Return 1
+    Return 0
+}
+
 ; CapsLock->RCltrlにしている前提
 Rctrl & a::Send {Home}
 Rctrl & e::Send {End}
-Rctrl & n::Send {Down}
-Rctrl & p::Send {Up}
-Rctrl & h::Send {Backspace}
-Rctrl & d::Send {Delete}
+Rctrl & n::
+    If isExcludeEmacsTarget()
+        Send ^n
+    Else
+        Send {Down}
+    Return
+Rctrl & p::
+    If isExcludeEmacsTarget()
+        Send ^p
+    Else
+        Send {Up}
+    Return
+Rctrl & h::
+    If isExcludeEmacsTarget()
+        Send ^h
+    Else
+        Send {Backspace}
+    Return
+Rctrl & d::
+    If isExcludeEmacsTarget()
+        Send ^d
+    Else
+        Send {Delete}
+    Return
 
 ;;; Utilities ;;;
 ;; Windows
@@ -598,6 +636,7 @@ Rctrl & d::Send {Delete}
 ;; Mail
 :*:*fme::from:me
 :*:*tme::to:me
+::isu::is:unread
 ;; Excel
 :*:`=IDR::=INDIRECT()
 :*:`=IDX::=INDEX()
