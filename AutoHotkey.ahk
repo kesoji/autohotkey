@@ -315,16 +315,16 @@ if (WinActive("ahk_exe Among Us.exe")) {
 }
 return
 
-; Toggle Left Alt
->^/::AltFlg := AltFlg ? false : true
-$Ctrl::
-    Keywait, Ctrl, U
-    Keywait, Ctrl, D T0.2
-    If (ErrorLevel=1) ;直前のコマンド＝Keywaitがタイムアウトで失敗＝1なら
-        Send, {Ctrl}
-    Else
-        AltFlg := AltFlg ? false : true
-    Return
+;; Toggle Left Alt
+;>^/::AltFlg := AltFlg ? false : true
+;$Ctrl::
+;    Keywait, Ctrl, U
+;    Keywait, Ctrl, D T0.2
+;    If (ErrorLevel=1) ;直前のコマンド＝Keywaitがタイムアウトで失敗＝1なら
+;        Send, {Ctrl}
+;    Else
+;        AltFlg := AltFlg ? false : true
+;    Return
 
 
 ; LButton::
@@ -584,27 +584,37 @@ isExcludeEmacsTarget()
 }
 
 ; CapsLock->RCltrlにしている前提
-Rctrl & a::Send {Home}
-Rctrl & e::Send {End}
-Rctrl & n::
+Lctrl & a::
+    If isExcludeEmacsTarget()
+        Send ^a
+    Else
+        Send {Home}
+    Return
+Lctrl & e::
+    If isExcludeEmacsTarget()
+        Send ^e
+    Else
+        Send {End}
+    Return
+Lctrl & n::
     If isExcludeEmacsTarget()
         Send ^n
     Else
         Send {Down}
     Return
-Rctrl & p::
+Lctrl & p::
     If isExcludeEmacsTarget()
         Send ^p
     Else
         Send {Up}
     Return
-Rctrl & h::
+Lctrl & h::
     If isExcludeEmacsTarget()
         Send ^h
     Else
         Send {Backspace}
     Return
-Rctrl & d::
+Lctrl & d::
     If isExcludeEmacsTarget()
         Send ^d
     Else
