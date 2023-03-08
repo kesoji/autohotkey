@@ -333,8 +333,15 @@ q::
 ;;; Disable Katakana / Hiragana
 ;sc070::Return
 
-sc07B & 0::Reload
-sc079 & 0::Reload
+sc07B::Send "{sc07B}"
+sc079::Send "{sc079}"
+
+sc07B & 0::
+sc079 & 0::
+{
+    MsgBox "Autohotkeyをリロードしました"
+    Reload
+}
 ;sc07B & 1::Send,^+{Tab}
 ;sc07B & 2::Send,^{Tab}
 ;sc07B & 3::Send,!{Left}
