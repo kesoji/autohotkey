@@ -342,6 +342,46 @@ sc079 & 0::
     MsgBox "Autohotkeyをリロードしました"
     Reload
 }
+
+;==============================================
+; HJKL
+sc07B & h::Send "{Blind}{Left}"
+sc07B & j::
+{
+    if (GetKeyState("LWin", "P")) {
+        Send "#^{Right}"
+    } else {
+        Send "{Blind}{Down}"
+    }
+}
+sc07B & k::
+{
+    if (GetKeyState("LWin", "P")) {
+        Send "#^{Left}"
+    } else {
+        Send "{Blind}{Up}"
+    }
+}
+sc07B & l::Send "{Blind}{Right}"
+
+;==============================================
+; WASD
+sc07B & a::Send "{Blind}{Left}"
+sc07B & s::Send "{Blind}{Down}"
+sc07B & w::Send "{Blind}{Up}"
+sc07B & d::Send "{Blind}{Right}"
+
+;==============================================
+;; Other moves 
+sc07B & q::Send "{Blind}{PgUp}"
+sc079 & q::Send "{Blind}{PgUp}"
+sc07B & e::Send "{Blind}{PgDn}"
+sc079 & e::Send "{Blind}{PgDn}"
+sc07B & z::Send "{Blind}{Home}"
+sc079 & z::Send "{Blind}{Home}"
+sc07B & x::Send "{Blind}{End}"
+sc079 & x::Send "{Blind}{End}"
+
 ;sc07B & 1::Send,^+{Tab}
 ;sc07B & 2::Send,^{Tab}
 ;sc07B & 3::Send,!{Left}
@@ -414,25 +454,6 @@ sc07B & RButton::
 ;sc079 & f::MouseClick, Right
 ;sc079 & c::MouseClick, Left, , , , D
 ;sc079 & v::MouseClick, Left, , , , U
-; HJKL
-sc07B & h::Send "{Blind}{Left}"
-sc07B & j::
-{
-    if (GetKeyState("LWin", "P")) {
-        Send "#^{Right}"
-    } else {
-        Send "{Blind}{Down}"
-    }
-}
-sc07B & k::
-{
-    if (GetKeyState("LWin", "P")) {
-        Send "#^{Left}"
-    } else {
-        Send "{Blind}{Up}"
-    }
-}
-sc07B & l::Send "{Blind}{Right}"
 ;sc079 & l::
 ;sc079 & k::
 ;sc079 & j::
@@ -456,20 +477,6 @@ sc07B & l::Send "{Blind}{Right}"
 ;        }
 ;    }
 ;Return
-;; WASD
-;sc07B & a::Send,{Blind}{Left}
-;sc07B & s::Send,{Blind}{Down}
-;sc07B & w::Send,{Blind}{Up}
-;sc07B & d::Send,{Blind}{Right}
-;; Other moves
-;sc07B & q::Send,{Blind}{PgUp}
-;sc079 & q::Send,{Blind}{PgUp}
-;sc07B & e::Send,{Blind}{PgDn}
-;sc079 & e::Send,{Blind}{PgDn}
-;sc07B & z::Send,{Blind}{Home}
-;sc079 & z::Send,{Blind}{Home}
-;sc07B & x::Send,{Blind}{End}
-;sc079 & x::Send,{Blind}{End}
 ;; Select
 ;sc07B & t::Send,{Blind}{Home}+{End}
 ;sc079 & t::Send,{Blind}{Home}+{End}
