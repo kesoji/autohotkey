@@ -303,13 +303,6 @@ q::
 ;    Else
 ;        AltFlg := AltFlg ? false : true
 ;    Return
-
-; LButton::
-; If GetKeyState("RButton", "P")
-;     send, {Blind}{Return}
-; Else
-;     Click
-; Return
 ^q::Send "!{F4}"
 
 ;;; Mouse Key
@@ -345,7 +338,7 @@ sc079 & 0::
 
 ;==============================================
 ; Util
-sc07B & f::Send "{Blind}{Return}"
+sc07B & f::Send "{Blind}{Enter}"
 sc07B & r::Send "{Blind}{F2}"
 sc07B & LButton::
 {
@@ -354,7 +347,10 @@ sc07B & LButton::
         Sleep 100
         Run "https://www.google.com/search?q=" . A_Clipboard
     } else {
-        Send "{Blind}{BS}"
+        if GetKeyState("RButton", "P")
+            Send "{Blind}{Enter}"
+        else
+            Send "{Blind}{BS}"
     }
 }
 sc07B & RButton::
@@ -373,19 +369,17 @@ sc07B & RButton::
 sc07B & h::Send "{Blind}{Left}"
 sc07B & j::
 {
-    if (GetKeyState("LWin", "P")) {
+    if (GetKeyState("LWin", "P"))
         Send "#^{Right}"
-    } else {
+    else
         Send "{Blind}{Down}"
-    }
 }
 sc07B & k::
 {
-    if (GetKeyState("LWin", "P")) {
+    if (GetKeyState("LWin", "P"))
         Send "#^{Left}"
-    } else {
+    else 
         Send "{Blind}{Up}"
-    }
 }
 sc07B & l::Send "{Blind}{Right}"
 
