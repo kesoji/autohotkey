@@ -344,6 +344,31 @@ sc079 & 0::
 }
 
 ;==============================================
+; Util
+sc07B & f::Send "{Blind}{Return}"
+sc07B & r::Send "{Blind}{F2}"
+sc07B & LButton::
+{
+    if GetKeyState("Shift", "P") {
+        Send "^c"
+        Sleep 100
+        Run "https://www.google.com/search?q=" . A_Clipboard
+    } else {
+        Send "{Blind}{BS}"
+    }
+}
+sc07B & RButton::
+{
+    If GetKeyState("Shift", "P"){
+        Send "^c"
+        Sleep 100
+        Run "http://ejje.weblio.jp/content/" . A_Clipboard
+    } else {
+        Send "{Blind}{Del}"
+    }
+}
+
+;==============================================
 ; HJKL
 sc07B & h::Send "{Blind}{Left}"
 sc07B & j::
@@ -418,26 +443,6 @@ sc079 & x::Send "{Blind}{End}"
 ;sc07B & 9::ShellRun(App_editor, A_ScriptFullPath)
 ;sc079 & 9::ShellRun(App_editor, A_ScriptFullPath)
 ;sc07B & -::Send ^{NumpadAdd} ;Auto resize column on Explorer
-sc07B & LButton::
-{
-    if GetKeyState("Shift", "P") {
-        Send "^c"
-        Sleep 100
-        Run "https://www.google.com/search?q=" . A_Clipboard
-    } else {
-        Send "{Blind}{BS}"
-    }
-}
-sc07B & RButton::
-{
-    If GetKeyState("Shift", "P"){
-        Send "^c"
-        Sleep 100
-        Run "http://ejje.weblio.jp/content/" . A_Clipboard
-    } else {
-        Send "{Blind}{Del}"
-    }
-}
 ;sc079 & MButton::
 ;    old := Clipboard
 ;    Send ^c
@@ -446,8 +451,6 @@ sc07B & RButton::
 ;    Clipboard := old
 ;return
 ;sc07B & MButton::Send,{Blind}{Home}+{End}
-;sc07B & f::Send,{Blind}{Return}
-;sc07B & r::send,{Blind}{F2}
 ;sc07B & c::Send,{AppsKey}
 ;
 ;sc079 & d::MouseClick
